@@ -1,0 +1,23 @@
+---
+layout: home
+
+hero:
+  name: OmniChat
+  text: Self-hostable real-time messaging
+  tagline: You own auth and UI. OmniChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
+  actions:
+    - theme: brand
+      text: Get started
+      link: /getting-started
+    - theme: alt
+      text: GitHub
+      link: https://github.com/OluwapelumiG/omnichat
+
+features:
+  - title: Rooms, not special cases
+    details: Group chat and 1:1 are the same — a room with one or many users. No separate group API.
+  - title: Headless SDKs
+    details: TypeScript client plus React and Vue hooks. Bring your own chat UI.
+  - title: Self-hosted
+    details: Docker gateway, JWT you mint, SQLite by default. Deploy on your infrastructure.
+---

@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+package omnichat.v1;
+
+option go_package = "github.com/OluwapelumiG/omnichat/pkg/pb;pb";
+
+// Envelope wraps every WebSocket binary frame.
+message Envelope {
+  uint64 request_id = 1;
+  oneof payload {
+    Error error = 10;
+    Auth auth = 11;
+    AuthOK auth_ok = 12;
+    JoinRoom join_room = 13;
+    JoinOK join_ok = 14;
+    LeaveRoom leave_room = 15;
+    LeaveOK leave_ok = 16;
+    SendMessage send_message = 17;
+    MessageAck message_ack = 18;
+    MessageEvent message_event = 19;
+    Typing typing = 20;
+    TypingEvent typing_event = 21;
+    ReadReceipt read_receipt = 22;
+    ReceiptEvent receipt_event = 23;
+    SyncRoom sync_room = 24;
+    SyncComplete sync_complete = 25;
+    EditMessage edit_message = 30;
+    DeleteMessage delete_message = 31;
+  }
+}
+
+message Error {
+  string code = 1;
+  string message = 2;
+}
+
+message Auth {
+  string token = 1;
+}
+
+message AuthOK {
+  string user_id = 1;
+  int64 server_time_unix_ms = 2;
+}
+
+message JoinRoom {
+  string room_id = 1;
+}
+
+message JoinOK {
+  string room_id = 1;
+  uint64 latest_seq = 2;
+}
+
+message LeaveRoom {
+  string room_id = 1;
+}
+
+message LeaveOK {
+  string room_id = 1;
+}
+
+message SendMessage {
+  string room_id = 1;
+  string client_msg_id = 2;
+  string body = 3;
+}
+
+message MessageAck {
+  string room_id = 1;
+  string client_msg_id = 2;
+  string server_msg_id = 3;
+  uint64 seq = 4;
+  int64 created_at_unix_ms = 5;
+}
+
+message MessageEvent {
+  string room_id = 1;
+  string client_msg_id = 2;
+  string server_msg_id = 3;
+  string sender_id = 4;
+  string body = 5;
+  uint64 seq = 6;
+  int64 created_at_unix_ms = 7;
+  // Sync cursor: equals seq on create; advances on edit/delete without changing seq.
+  uint64 update_seq = 8;
+  int64 edited_at_unix_ms = 9;
+  bool deleted = 10;
+}
+
+message Typing {
+  string room_id = 1;
+  bool is_typing = 2;
+}
+
+message TypingEvent {
+  string room_id = 1;
+  string user_id = 2;
+  bool is_typing = 3;
+}
+
+message ReadReceipt {
+  string room_id = 1;
+  uint64 last_read_seq = 2;
+}
+
+message ReceiptEvent {
+  string room_id = 1;
+  string user_id = 2;
+  uint64 last_read_seq = 3;
+  int64 updated_at_unix_ms = 4;
+}
+
+message SyncRoom {
+  string room_id = 1;
+  uint64 since_seq = 2;
+  uint32 limit = 3;
+}
+
+message SyncComplete {
+  string room_id = 1;
+  uint64 latest_seq = 2;
+  bool has_more = 3;
+}
+
+message EditMessage {
+  string room_id = 1;
+  string server_msg_id = 2;
+  string body = 3;
+}
+
+message DeleteMessage {
+  string room_id = 1;
+  string server_msg_id = 2;
+}

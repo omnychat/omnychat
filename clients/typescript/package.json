@@ -1,0 +1,19 @@
+{
+  "name": "omnichat-typescript",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @omnichat/client && npm run build -w @omnichat/storage-sqlite && npm run build -w @omnichat/react && npm run build -w @omnichat/vue",
+    "test": "npm run test -w @omnichat/client",
+    "proto": "node scripts/gen-proto.mjs",
+    "publish:dry": "npm publish --dry-run -w @omnichat/client && npm publish --dry-run -w @omnichat/react && npm publish --dry-run -w @omnichat/storage-sqlite && npm publish --dry-run -w @omnichat/vue"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.50.0",
+    "@bufbuild/protoc-gen-es": "^2.2.5",
+    "typescript": "^5.7.3"
+  }
+}

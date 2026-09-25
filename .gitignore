@@ -1,0 +1,14 @@
+bin/
+data/
+.tools/
+docs/node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+clients/typescript/node_modules/
+clients/typescript/packages/*/node_modules/
+clients/typescript/packages/*/dist/
+clients/typescript/examples/*/node_modules/
+clients/typescript/examples/*/dist/
+*.db
+*.db-*
+.DS_Store

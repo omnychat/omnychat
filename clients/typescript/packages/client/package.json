@@ -1,0 +1,48 @@
+{
+  "name": "@omnichat/client",
+  "version": "0.1.0",
+  "description": "OmniChat sync manager — local cache, outbox, reconnect",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --import tsx/esm src/storage/memory.test.ts && node --import tsx/esm src/sync/client.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "Apache-2.0",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OluwapelumiG/omnichat.git",
+    "directory": "clients/typescript/packages/client"
+  },
+  "homepage": "https://github.com/OluwapelumiG/omnichat#readme",
+  "bugs": {
+    "url": "https://github.com/OluwapelumiG/omnichat/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
