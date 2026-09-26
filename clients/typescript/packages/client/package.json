@@ -1,7 +1,7 @@
 {
-  "name": "@omnichat/client",
+  "name": "@omnychat/client",
   "version": "0.1.0",
-  "description": "OmniChat sync manager — local cache, outbox, reconnect",
+  "description": "OmnyChat sync manager — local cache, outbox, reconnect",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -35,12 +35,12 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OluwapelumiG/omnichat.git",
+    "url": "git+https://github.com/omnychat/omnychat.git",
     "directory": "clients/typescript/packages/client"
   },
-  "homepage": "https://github.com/OluwapelumiG/omnichat#readme",
+  "homepage": "https://github.com/omnychat/omnychat#readme",
   "bugs": {
-    "url": "https://github.com/OluwapelumiG/omnichat/issues"
+    "url": "https://github.com/omnychat/omnychat/issues"
   },
   "publishConfig": {
     "access": "public"

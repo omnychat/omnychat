@@ -1,14 +1,14 @@
 # Protocol basics
 
-OmniChat speaks **Protobuf** over **WebSocket binary** frames. One WebSocket message = one `Envelope`.
+OmnyChat speaks **Protobuf** over **WebSocket binary** frames. One WebSocket message = one `Envelope`.
 
-Full schema: [`proto/omnichat/v1/omnichat.proto`](https://github.com/OluwapelumiG/omnichat/blob/main/proto/omnichat/v1/omnichat.proto)  
-Generated Go: [`pkg/pb/`](https://github.com/OluwapelumiG/omnichat/tree/main/pkg/pb)
+Full schema: [`proto/omnychat/v1/omnychat.proto`](https://github.com/omnychat/omnychat/blob/main/proto/omnychat/v1/omnychat.proto)  
+Generated Go: [`pkg/pb/`](https://github.com/omnychat/omnychat/tree/main/pkg/pb)
 
 ## Framing
 
 - Use binary WebSocket frames only (not text/JSON).
-- Max size defaults to 1 MiB (`OMNICHAT_MAX_FRAME_BYTES`).
+- Max size defaults to 1 MiB (`OMNYCHAT_MAX_FRAME_BYTES`).
 - Server sends WebSocket pings; clients should reply with pong.
 
 ## Envelope

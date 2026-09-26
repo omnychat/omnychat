@@ -13,7 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const tsRoot = resolve(__dirname, "..");
 const repoRoot = resolve(tsRoot, "../..");
 const outDir = join(tsRoot, "packages/client/src/proto");
-const protoFile = join(repoRoot, "proto/omnichat/v1/omnichat.proto");
+const protoFile = join(repoRoot, "proto/omnychat/v1/omnychat.proto");
 const protoPath = join(repoRoot, "proto");
 
 mkdirSync(outDir, { recursive: true });

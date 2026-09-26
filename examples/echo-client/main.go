@@ -14,7 +14,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-	"github.com/OluwapelumiG/omnichat/pkg/pb"
+	"github.com/omnychat/omnychat/pkg/pb"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -22,7 +22,7 @@ func main() {
 	var (
 		addr      = flag.String("addr", "http://localhost:8080", "gateway base URL")
 		wsURL     = flag.String("ws", "ws://localhost:8080/v1/ws", "websocket URL")
-		secret    = flag.String("secret", envOr("OMNICHAT_JWT_SECRET", "dev-secret-change-me"), "JWT HMAC secret")
+		secret    = flag.String("secret", envOr("OMNYCHAT_JWT_SECRET", "dev-secret-change-me"), "JWT HMAC secret")
 		sub       = flag.String("sub", "alice", "JWT subject")
 		room      = flag.String("room", "lobby", "room id")
 		body      = flag.String("body", "hello from echo-client", "message body")

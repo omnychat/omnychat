@@ -25,7 +25,7 @@ import {
 
 export type TokenProvider = () => string | Promise<string>;
 
-export interface OmniChatOptions {
+export interface OmnyChatOptions {
   url: string;
   tokenProvider: TokenProvider;
   storage: Storage;
@@ -59,10 +59,10 @@ function backoffMs(attempt: number, base: number, max: number): number {
 /**
  * Client sync manager: local cache, optimistic outbox, reconnect + SyncRoom catch-up.
  */
-export class OmniChatClient {
+export class OmnyChatClient {
   private readonly opts: Required<
     Pick<
-      OmniChatOptions,
+      OmnyChatOptions,
       | "reconnectBaseMs"
       | "reconnectMaxMs"
       | "outboxBaseMs"
@@ -70,7 +70,7 @@ export class OmniChatClient {
       | "syncPageSize"
     >
   > &
-    OmniChatOptions;
+    OmnyChatOptions;
 
   private transport: Transport | null = null;
   private requestId = 0n;
@@ -98,7 +98,7 @@ export class OmniChatClient {
     { resolve: (hasMore: boolean) => void; reject: (err: Error) => void }
   >();
 
-  constructor(opts: OmniChatOptions) {
+  constructor(opts: OmnyChatOptions) {
     this.opts = {
       reconnectBaseMs: 1000,
       reconnectMaxMs: 30_000,
@@ -728,6 +728,6 @@ export class OmniChatClient {
   }
 }
 
-export function createOmniChat(opts: OmniChatOptions): OmniChatClient {
-  return new OmniChatClient(opts);
+export function createOmnyChat(opts: OmnyChatOptions): OmnyChatClient {
+  return new OmnyChatClient(opts);
 }

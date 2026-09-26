@@ -1,22 +1,22 @@
 /**
- * Smoke test against a local OmniChat gateway.
+ * Smoke test against a local OmnyChat gateway.
  *
  * Usage (gateway must be running on :8080):
- *   OMNICHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnichat/node-smoke
+ *   OMNYCHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnychat/node-smoke
  */
 import { SignJWT } from "jose";
 import WebSocket from "ws";
 import {
   createMemoryStorage,
-  createOmniChat,
+  createOmnyChat,
   type WebSocketConstructor,
-} from "@omnichat/client";
+} from "@omnychat/client";
 
-const base = process.env.OMNICHAT_HTTP ?? "http://localhost:8080";
-const wsUrl = process.env.OMNICHAT_WS ?? "ws://localhost:8080/v1/ws";
-const secret = process.env.OMNICHAT_JWT_SECRET ?? "dev-secret-change-me";
-const room = process.env.OMNICHAT_ROOM ?? "lobby";
-const sub = process.env.OMNICHAT_SUB ?? "smoke-user";
+const base = process.env.OMNYCHAT_HTTP ?? "http://localhost:8080";
+const wsUrl = process.env.OMNYCHAT_WS ?? "ws://localhost:8080/v1/ws";
+const secret = process.env.OMNYCHAT_JWT_SECRET ?? "dev-secret-change-me";
+const room = process.env.OMNYCHAT_ROOM ?? "lobby";
+const sub = process.env.OMNYCHAT_SUB ?? "smoke-user";
 
 async function mintToken(): Promise<string> {
   const key = new TextEncoder().encode(secret);
@@ -48,7 +48,7 @@ async function main(): Promise<void> {
   await ensureRoom();
 
   const storage = createMemoryStorage();
-  const client = createOmniChat({
+  const client = createOmnyChat({
     url: wsUrl,
     tokenProvider: mintToken,
     storage,

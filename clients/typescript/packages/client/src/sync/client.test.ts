@@ -3,7 +3,7 @@
  * and outbox lifecycle without a live gateway.
  */
 import { createMemoryStorage } from "../storage/memory.js";
-import { createOmniChat } from "./client.js";
+import { createOmnyChat } from "./client.js";
 
 async function test(name: string, fn: () => Promise<void>): Promise<void> {
   try {
@@ -22,7 +22,7 @@ function assert(cond: unknown, msg: string): asserts cond {
 
 await test("sendMessage queues optimistic outbox without connection", async () => {
   const storage = createMemoryStorage();
-  const client = createOmniChat({
+  const client = createOmnyChat({
     url: "ws://localhost:9/v1/ws",
     tokenProvider: async () => "unused",
     storage,
@@ -54,7 +54,7 @@ await test("subscribeRoom emits snapshot from storage", async () => {
     createdAtUnixMs: 1,
     status: "confirmed",
   });
-  const client = createOmniChat({
+  const client = createOmnyChat({
     url: "ws://localhost:9/v1/ws",
     tokenProvider: async () => "unused",
     storage,

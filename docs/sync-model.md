@@ -1,6 +1,6 @@
 # Sync model
 
-The TypeScript sync manager (`@omnichat/client`) owns local persistence, optimistic sends, and reconnect catch-up.
+The TypeScript sync manager (`@omnychat/client`) owns local persistence, optimistic sends, and reconnect catch-up.
 
 ## Goals
 
@@ -13,9 +13,9 @@ The TypeScript sync manager (`@omnichat/client`) owns local persistence, optimis
 
 | Package | Role |
 | --- | --- |
-| `@omnichat/client` | Sync engine + `MemoryStorage` + `IndexedDBStorage` |
-| `@omnichat/storage-sqlite` | SQLite adapter for React Native / Expo |
-| `@omnichat/react` | Hooks shared by React web and React Native |
+| `@omnychat/client` | Sync engine + `MemoryStorage` + `IndexedDBStorage` |
+| `@omnychat/storage-sqlite` | SQLite adapter for React Native / Expo |
+| `@omnychat/react` | Hooks shared by React web and React Native |
 
 ## Local schema (logical)
 
@@ -41,10 +41,10 @@ The TypeScript sync manager (`@omnichat/client`) owns local persistence, optimis
 
 ```ts
 // Web
-import { createOmniChat, createIndexedDBStorage } from '@omnichat/client';
+import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
 
 // React Native / Expo
-import { createSqliteStorage } from '@omnichat/storage-sqlite';
+import { createSqliteStorage } from '@omnychat/storage-sqlite';
 import * as SQLite from 'expo-sqlite';
 const storage = await createSqliteStorage(SQLite.openDatabaseAsync);
 ```

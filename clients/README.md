@@ -5,4 +5,4 @@ TypeScript packages under `typescript/`:
 - [SDK guide](../../docs/sdk-guide.md)
 - [Sync model](../../docs/sync-model.md)
 
-Packages: `@omnichat/client`, `@omnichat/react`, `@omnichat/vue`, `@omnichat/storage-sqlite`, plus `examples/node-smoke`.
+Packages: `@omnychat/client`, `@omnychat/react`, `@omnychat/vue`, `@omnychat/storage-sqlite`, plus `examples/node-smoke`.

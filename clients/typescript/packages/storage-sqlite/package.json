@@ -1,7 +1,7 @@
 {
-  "name": "@omnichat/storage-sqlite",
+  "name": "@omnychat/storage-sqlite",
   "version": "0.1.0",
-  "description": "SQLite storage adapter for OmniChat (Expo / React Native)",
+  "description": "SQLite storage adapter for OmnyChat (Expo / React Native)",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,7 +20,7 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@omnichat/client": "*",
+    "@omnychat/client": "*",
     "expo-sqlite": ">=14"
   },
   "peerDependenciesMeta": {
@@ -29,19 +29,19 @@
     }
   },
   "devDependencies": {
-    "@omnichat/client": "*",
+    "@omnychat/client": "*",
     "typescript": "^5.7.3"
   },
   "license": "Apache-2.0",
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OluwapelumiG/omnichat.git",
+    "url": "git+https://github.com/omnychat/omnychat.git",
     "directory": "clients/typescript/packages/storage-sqlite"
   },
-  "homepage": "https://github.com/OluwapelumiG/omnichat#readme",
+  "homepage": "https://github.com/omnychat/omnychat#readme",
   "bugs": {
-    "url": "https://github.com/OluwapelumiG/omnichat/issues"
+    "url": "https://github.com/omnychat/omnychat/issues"
   },
   "publishConfig": {
     "access": "public"

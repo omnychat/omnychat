@@ -1,7 +1,7 @@
 {
-  "name": "@omnichat/vue",
+  "name": "@omnychat/vue",
   "version": "0.1.0",
-  "description": "Vue 3 composables for OmniChat",
+  "description": "Vue 3 composables for OmnyChat",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,11 +20,11 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@omnichat/client": "*",
+    "@omnychat/client": "*",
     "vue": ">=3.3"
   },
   "devDependencies": {
-    "@omnichat/client": "*",
+    "@omnychat/client": "*",
     "typescript": "^5.7.3",
     "vue": "^3.5.13"
   },
@@ -32,12 +32,12 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OluwapelumiG/omnichat.git",
+    "url": "git+https://github.com/omnychat/omnychat.git",
     "directory": "clients/typescript/packages/vue"
   },
-  "homepage": "https://github.com/OluwapelumiG/omnichat#readme",
+  "homepage": "https://github.com/omnychat/omnychat#readme",
   "bugs": {
-    "url": "https://github.com/OluwapelumiG/omnichat/issues"
+    "url": "https://github.com/omnychat/omnychat/issues"
   },
   "publishConfig": {
     "access": "public"

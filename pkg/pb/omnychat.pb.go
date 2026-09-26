@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.5
 // 	protoc        v5.29.3
-// source: omnichat/v1/omnichat.proto
+// source: omnychat/v1/omnychat.proto
 
 package pb
 
@@ -52,7 +52,7 @@ type Envelope struct {
 
 func (x *Envelope) Reset() {
 	*x = Envelope{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[0]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -64,7 +64,7 @@ func (x *Envelope) String() string {
 func (*Envelope) ProtoMessage() {}
 
 func (x *Envelope) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[0]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -77,7 +77,7 @@ func (x *Envelope) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Envelope.ProtoReflect.Descriptor instead.
 func (*Envelope) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{0}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Envelope) GetRequestId() uint64 {
@@ -378,7 +378,7 @@ type Error struct {
 
 func (x *Error) Reset() {
 	*x = Error{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[1]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -390,7 +390,7 @@ func (x *Error) String() string {
 func (*Error) ProtoMessage() {}
 
 func (x *Error) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[1]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -403,7 +403,7 @@ func (x *Error) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Error.ProtoReflect.Descriptor instead.
 func (*Error) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{1}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Error) GetCode() string {
@@ -429,7 +429,7 @@ type Auth struct {
 
 func (x *Auth) Reset() {
 	*x = Auth{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[2]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -441,7 +441,7 @@ func (x *Auth) String() string {
 func (*Auth) ProtoMessage() {}
 
 func (x *Auth) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[2]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -454,7 +454,7 @@ func (x *Auth) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Auth.ProtoReflect.Descriptor instead.
 func (*Auth) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{2}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Auth) GetToken() string {
@@ -474,7 +474,7 @@ type AuthOK struct {
 
 func (x *AuthOK) Reset() {
 	*x = AuthOK{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[3]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -486,7 +486,7 @@ func (x *AuthOK) String() string {
 func (*AuthOK) ProtoMessage() {}
 
 func (x *AuthOK) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[3]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -499,7 +499,7 @@ func (x *AuthOK) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthOK.ProtoReflect.Descriptor instead.
 func (*AuthOK) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{3}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *AuthOK) GetUserId() string {
@@ -525,7 +525,7 @@ type JoinRoom struct {
 
 func (x *JoinRoom) Reset() {
 	*x = JoinRoom{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[4]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -537,7 +537,7 @@ func (x *JoinRoom) String() string {
 func (*JoinRoom) ProtoMessage() {}
 
 func (x *JoinRoom) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[4]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -550,7 +550,7 @@ func (x *JoinRoom) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinRoom.ProtoReflect.Descriptor instead.
 func (*JoinRoom) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{4}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *JoinRoom) GetRoomId() string {
@@ -570,7 +570,7 @@ type JoinOK struct {
 
 func (x *JoinOK) Reset() {
 	*x = JoinOK{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[5]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -582,7 +582,7 @@ func (x *JoinOK) String() string {
 func (*JoinOK) ProtoMessage() {}
 
 func (x *JoinOK) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[5]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -595,7 +595,7 @@ func (x *JoinOK) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JoinOK.ProtoReflect.Descriptor instead.
 func (*JoinOK) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{5}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *JoinOK) GetRoomId() string {
@@ -621,7 +621,7 @@ type LeaveRoom struct {
 
 func (x *LeaveRoom) Reset() {
 	*x = LeaveRoom{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[6]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -633,7 +633,7 @@ func (x *LeaveRoom) String() string {
 func (*LeaveRoom) ProtoMessage() {}
 
 func (x *LeaveRoom) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[6]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -646,7 +646,7 @@ func (x *LeaveRoom) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaveRoom.ProtoReflect.Descriptor instead.
 func (*LeaveRoom) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{6}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *LeaveRoom) GetRoomId() string {
@@ -665,7 +665,7 @@ type LeaveOK struct {
 
 func (x *LeaveOK) Reset() {
 	*x = LeaveOK{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[7]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -677,7 +677,7 @@ func (x *LeaveOK) String() string {
 func (*LeaveOK) ProtoMessage() {}
 
 func (x *LeaveOK) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[7]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -690,7 +690,7 @@ func (x *LeaveOK) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LeaveOK.ProtoReflect.Descriptor instead.
 func (*LeaveOK) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{7}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *LeaveOK) GetRoomId() string {
@@ -711,7 +711,7 @@ type SendMessage struct {
 
 func (x *SendMessage) Reset() {
 	*x = SendMessage{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[8]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -723,7 +723,7 @@ func (x *SendMessage) String() string {
 func (*SendMessage) ProtoMessage() {}
 
 func (x *SendMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[8]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -736,7 +736,7 @@ func (x *SendMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendMessage.ProtoReflect.Descriptor instead.
 func (*SendMessage) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{8}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *SendMessage) GetRoomId() string {
@@ -773,7 +773,7 @@ type MessageAck struct {
 
 func (x *MessageAck) Reset() {
 	*x = MessageAck{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[9]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -785,7 +785,7 @@ func (x *MessageAck) String() string {
 func (*MessageAck) ProtoMessage() {}
 
 func (x *MessageAck) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[9]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -798,7 +798,7 @@ func (x *MessageAck) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageAck.ProtoReflect.Descriptor instead.
 func (*MessageAck) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{9}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *MessageAck) GetRoomId() string {
@@ -855,7 +855,7 @@ type MessageEvent struct {
 
 func (x *MessageEvent) Reset() {
 	*x = MessageEvent{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[10]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -867,7 +867,7 @@ func (x *MessageEvent) String() string {
 func (*MessageEvent) ProtoMessage() {}
 
 func (x *MessageEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[10]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -880,7 +880,7 @@ func (x *MessageEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MessageEvent.ProtoReflect.Descriptor instead.
 func (*MessageEvent) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{10}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *MessageEvent) GetRoomId() string {
@@ -963,7 +963,7 @@ type Typing struct {
 
 func (x *Typing) Reset() {
 	*x = Typing{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[11]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -975,7 +975,7 @@ func (x *Typing) String() string {
 func (*Typing) ProtoMessage() {}
 
 func (x *Typing) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[11]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -988,7 +988,7 @@ func (x *Typing) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Typing.ProtoReflect.Descriptor instead.
 func (*Typing) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{11}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *Typing) GetRoomId() string {
@@ -1016,7 +1016,7 @@ type TypingEvent struct {
 
 func (x *TypingEvent) Reset() {
 	*x = TypingEvent{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[12]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1028,7 +1028,7 @@ func (x *TypingEvent) String() string {
 func (*TypingEvent) ProtoMessage() {}
 
 func (x *TypingEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[12]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1041,7 +1041,7 @@ func (x *TypingEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TypingEvent.ProtoReflect.Descriptor instead.
 func (*TypingEvent) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{12}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *TypingEvent) GetRoomId() string {
@@ -1075,7 +1075,7 @@ type ReadReceipt struct {
 
 func (x *ReadReceipt) Reset() {
 	*x = ReadReceipt{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[13]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1087,7 +1087,7 @@ func (x *ReadReceipt) String() string {
 func (*ReadReceipt) ProtoMessage() {}
 
 func (x *ReadReceipt) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[13]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1100,7 +1100,7 @@ func (x *ReadReceipt) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReadReceipt.ProtoReflect.Descriptor instead.
 func (*ReadReceipt) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{13}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ReadReceipt) GetRoomId() string {
@@ -1129,7 +1129,7 @@ type ReceiptEvent struct {
 
 func (x *ReceiptEvent) Reset() {
 	*x = ReceiptEvent{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[14]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1141,7 +1141,7 @@ func (x *ReceiptEvent) String() string {
 func (*ReceiptEvent) ProtoMessage() {}
 
 func (x *ReceiptEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[14]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1154,7 +1154,7 @@ func (x *ReceiptEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReceiptEvent.ProtoReflect.Descriptor instead.
 func (*ReceiptEvent) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{14}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ReceiptEvent) GetRoomId() string {
@@ -1196,7 +1196,7 @@ type SyncRoom struct {
 
 func (x *SyncRoom) Reset() {
 	*x = SyncRoom{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[15]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1208,7 +1208,7 @@ func (x *SyncRoom) String() string {
 func (*SyncRoom) ProtoMessage() {}
 
 func (x *SyncRoom) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[15]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1221,7 +1221,7 @@ func (x *SyncRoom) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SyncRoom.ProtoReflect.Descriptor instead.
 func (*SyncRoom) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{15}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *SyncRoom) GetRoomId() string {
@@ -1256,7 +1256,7 @@ type SyncComplete struct {
 
 func (x *SyncComplete) Reset() {
 	*x = SyncComplete{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[16]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1268,7 +1268,7 @@ func (x *SyncComplete) String() string {
 func (*SyncComplete) ProtoMessage() {}
 
 func (x *SyncComplete) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[16]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1281,7 +1281,7 @@ func (x *SyncComplete) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SyncComplete.ProtoReflect.Descriptor instead.
 func (*SyncComplete) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{16}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *SyncComplete) GetRoomId() string {
@@ -1316,7 +1316,7 @@ type EditMessage struct {
 
 func (x *EditMessage) Reset() {
 	*x = EditMessage{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[17]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1328,7 +1328,7 @@ func (x *EditMessage) String() string {
 func (*EditMessage) ProtoMessage() {}
 
 func (x *EditMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[17]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1341,7 +1341,7 @@ func (x *EditMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EditMessage.ProtoReflect.Descriptor instead.
 func (*EditMessage) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{17}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *EditMessage) GetRoomId() string {
@@ -1375,7 +1375,7 @@ type DeleteMessage struct {
 
 func (x *DeleteMessage) Reset() {
 	*x = DeleteMessage{}
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[18]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1387,7 +1387,7 @@ func (x *DeleteMessage) String() string {
 func (*DeleteMessage) ProtoMessage() {}
 
 func (x *DeleteMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_omnichat_v1_omnichat_proto_msgTypes[18]
+	mi := &file_omnychat_v1_omnychat_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1400,7 +1400,7 @@ func (x *DeleteMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteMessage.ProtoReflect.Descriptor instead.
 func (*DeleteMessage) Descriptor() ([]byte, []int) {
-	return file_omnichat_v1_omnichat_proto_rawDescGZIP(), []int{18}
+	return file_omnychat_v1_omnychat_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *DeleteMessage) GetRoomId() string {
@@ -1417,9 +1417,9 @@ func (x *DeleteMessage) GetServerMsgId() string {
 	return ""
 }
 
-var File_omnichat_v1_omnichat_proto protoreflect.FileDescriptor
+var File_omnychat_v1_omnychat_proto protoreflect.FileDescriptor
 
-var file_omnichat_v1_omnichat_proto_rawDesc = string([]byte{
+var file_omnychat_v1_omnychat_proto_rawDesc = string([]byte{
 	0x0a, 0x1a, 0x6f, 0x6d, 0x6e, 0x69, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x6d,
 	0x6e, 0x69, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b, 0x6f, 0x6d,
 	0x6e, 0x69, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x76, 0x31, 0x22, 0xb3, 0x08, 0x0a, 0x08, 0x45, 0x6e,
@@ -1602,58 +1602,58 @@ var file_omnichat_v1_omnichat_proto_rawDesc = string([]byte{
 })
 
 var (
-	file_omnichat_v1_omnichat_proto_rawDescOnce sync.Once
-	file_omnichat_v1_omnichat_proto_rawDescData []byte
+	file_omnychat_v1_omnychat_proto_rawDescOnce sync.Once
+	file_omnychat_v1_omnychat_proto_rawDescData []byte
 )
 
-func file_omnichat_v1_omnichat_proto_rawDescGZIP() []byte {
-	file_omnichat_v1_omnichat_proto_rawDescOnce.Do(func() {
-		file_omnichat_v1_omnichat_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_omnichat_v1_omnichat_proto_rawDesc), len(file_omnichat_v1_omnichat_proto_rawDesc)))
+func file_omnychat_v1_omnychat_proto_rawDescGZIP() []byte {
+	file_omnychat_v1_omnychat_proto_rawDescOnce.Do(func() {
+		file_omnychat_v1_omnychat_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_omnychat_v1_omnychat_proto_rawDesc), len(file_omnychat_v1_omnychat_proto_rawDesc)))
 	})
-	return file_omnichat_v1_omnichat_proto_rawDescData
+	return file_omnychat_v1_omnychat_proto_rawDescData
 }
 
-var file_omnichat_v1_omnichat_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
-var file_omnichat_v1_omnichat_proto_goTypes = []any{
-	(*Envelope)(nil),      // 0: omnichat.v1.Envelope
-	(*Error)(nil),         // 1: omnichat.v1.Error
-	(*Auth)(nil),          // 2: omnichat.v1.Auth
-	(*AuthOK)(nil),        // 3: omnichat.v1.AuthOK
-	(*JoinRoom)(nil),      // 4: omnichat.v1.JoinRoom
-	(*JoinOK)(nil),        // 5: omnichat.v1.JoinOK
-	(*LeaveRoom)(nil),     // 6: omnichat.v1.LeaveRoom
-	(*LeaveOK)(nil),       // 7: omnichat.v1.LeaveOK
-	(*SendMessage)(nil),   // 8: omnichat.v1.SendMessage
-	(*MessageAck)(nil),    // 9: omnichat.v1.MessageAck
-	(*MessageEvent)(nil),  // 10: omnichat.v1.MessageEvent
-	(*Typing)(nil),        // 11: omnichat.v1.Typing
-	(*TypingEvent)(nil),   // 12: omnichat.v1.TypingEvent
-	(*ReadReceipt)(nil),   // 13: omnichat.v1.ReadReceipt
-	(*ReceiptEvent)(nil),  // 14: omnichat.v1.ReceiptEvent
-	(*SyncRoom)(nil),      // 15: omnichat.v1.SyncRoom
-	(*SyncComplete)(nil),  // 16: omnichat.v1.SyncComplete
-	(*EditMessage)(nil),   // 17: omnichat.v1.EditMessage
-	(*DeleteMessage)(nil), // 18: omnichat.v1.DeleteMessage
+var file_omnychat_v1_omnychat_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
+var file_omnychat_v1_omnychat_proto_goTypes = []any{
+	(*Envelope)(nil),      // 0: omnychat.v1.Envelope
+	(*Error)(nil),         // 1: omnychat.v1.Error
+	(*Auth)(nil),          // 2: omnychat.v1.Auth
+	(*AuthOK)(nil),        // 3: omnychat.v1.AuthOK
+	(*JoinRoom)(nil),      // 4: omnychat.v1.JoinRoom
+	(*JoinOK)(nil),        // 5: omnychat.v1.JoinOK
+	(*LeaveRoom)(nil),     // 6: omnychat.v1.LeaveRoom
+	(*LeaveOK)(nil),       // 7: omnychat.v1.LeaveOK
+	(*SendMessage)(nil),   // 8: omnychat.v1.SendMessage
+	(*MessageAck)(nil),    // 9: omnychat.v1.MessageAck
+	(*MessageEvent)(nil),  // 10: omnychat.v1.MessageEvent
+	(*Typing)(nil),        // 11: omnychat.v1.Typing
+	(*TypingEvent)(nil),   // 12: omnychat.v1.TypingEvent
+	(*ReadReceipt)(nil),   // 13: omnychat.v1.ReadReceipt
+	(*ReceiptEvent)(nil),  // 14: omnychat.v1.ReceiptEvent
+	(*SyncRoom)(nil),      // 15: omnychat.v1.SyncRoom
+	(*SyncComplete)(nil),  // 16: omnychat.v1.SyncComplete
+	(*EditMessage)(nil),   // 17: omnychat.v1.EditMessage
+	(*DeleteMessage)(nil), // 18: omnychat.v1.DeleteMessage
 }
-var file_omnichat_v1_omnichat_proto_depIdxs = []int32{
-	1,  // 0: omnichat.v1.Envelope.error:type_name -> omnichat.v1.Error
-	2,  // 1: omnichat.v1.Envelope.auth:type_name -> omnichat.v1.Auth
-	3,  // 2: omnichat.v1.Envelope.auth_ok:type_name -> omnichat.v1.AuthOK
-	4,  // 3: omnichat.v1.Envelope.join_room:type_name -> omnichat.v1.JoinRoom
-	5,  // 4: omnichat.v1.Envelope.join_ok:type_name -> omnichat.v1.JoinOK
-	6,  // 5: omnichat.v1.Envelope.leave_room:type_name -> omnichat.v1.LeaveRoom
-	7,  // 6: omnichat.v1.Envelope.leave_ok:type_name -> omnichat.v1.LeaveOK
-	8,  // 7: omnichat.v1.Envelope.send_message:type_name -> omnichat.v1.SendMessage
-	9,  // 8: omnichat.v1.Envelope.message_ack:type_name -> omnichat.v1.MessageAck
-	10, // 9: omnichat.v1.Envelope.message_event:type_name -> omnichat.v1.MessageEvent
-	11, // 10: omnichat.v1.Envelope.typing:type_name -> omnichat.v1.Typing
-	12, // 11: omnichat.v1.Envelope.typing_event:type_name -> omnichat.v1.TypingEvent
-	13, // 12: omnichat.v1.Envelope.read_receipt:type_name -> omnichat.v1.ReadReceipt
-	14, // 13: omnichat.v1.Envelope.receipt_event:type_name -> omnichat.v1.ReceiptEvent
-	15, // 14: omnichat.v1.Envelope.sync_room:type_name -> omnichat.v1.SyncRoom
-	16, // 15: omnichat.v1.Envelope.sync_complete:type_name -> omnichat.v1.SyncComplete
-	17, // 16: omnichat.v1.Envelope.edit_message:type_name -> omnichat.v1.EditMessage
-	18, // 17: omnichat.v1.Envelope.delete_message:type_name -> omnichat.v1.DeleteMessage
+var file_omnychat_v1_omnychat_proto_depIdxs = []int32{
+	1,  // 0: omnychat.v1.Envelope.error:type_name -> omnychat.v1.Error
+	2,  // 1: omnychat.v1.Envelope.auth:type_name -> omnychat.v1.Auth
+	3,  // 2: omnychat.v1.Envelope.auth_ok:type_name -> omnychat.v1.AuthOK
+	4,  // 3: omnychat.v1.Envelope.join_room:type_name -> omnychat.v1.JoinRoom
+	5,  // 4: omnychat.v1.Envelope.join_ok:type_name -> omnychat.v1.JoinOK
+	6,  // 5: omnychat.v1.Envelope.leave_room:type_name -> omnychat.v1.LeaveRoom
+	7,  // 6: omnychat.v1.Envelope.leave_ok:type_name -> omnychat.v1.LeaveOK
+	8,  // 7: omnychat.v1.Envelope.send_message:type_name -> omnychat.v1.SendMessage
+	9,  // 8: omnychat.v1.Envelope.message_ack:type_name -> omnychat.v1.MessageAck
+	10, // 9: omnychat.v1.Envelope.message_event:type_name -> omnychat.v1.MessageEvent
+	11, // 10: omnychat.v1.Envelope.typing:type_name -> omnychat.v1.Typing
+	12, // 11: omnychat.v1.Envelope.typing_event:type_name -> omnychat.v1.TypingEvent
+	13, // 12: omnychat.v1.Envelope.read_receipt:type_name -> omnychat.v1.ReadReceipt
+	14, // 13: omnychat.v1.Envelope.receipt_event:type_name -> omnychat.v1.ReceiptEvent
+	15, // 14: omnychat.v1.Envelope.sync_room:type_name -> omnychat.v1.SyncRoom
+	16, // 15: omnychat.v1.Envelope.sync_complete:type_name -> omnychat.v1.SyncComplete
+	17, // 16: omnychat.v1.Envelope.edit_message:type_name -> omnychat.v1.EditMessage
+	18, // 17: omnychat.v1.Envelope.delete_message:type_name -> omnychat.v1.DeleteMessage
 	18, // [18:18] is the sub-list for method output_type
 	18, // [18:18] is the sub-list for method input_type
 	18, // [18:18] is the sub-list for extension type_name
@@ -1661,12 +1661,12 @@ var file_omnichat_v1_omnichat_proto_depIdxs = []int32{
 	0,  // [0:18] is the sub-list for field type_name
 }
 
-func init() { file_omnichat_v1_omnichat_proto_init() }
-func file_omnichat_v1_omnichat_proto_init() {
-	if File_omnichat_v1_omnichat_proto != nil {
+func init() { file_omnychat_v1_omnychat_proto_init() }
+func file_omnychat_v1_omnychat_proto_init() {
+	if File_omnychat_v1_omnychat_proto != nil {
 		return
 	}
-	file_omnichat_v1_omnichat_proto_msgTypes[0].OneofWrappers = []any{
+	file_omnychat_v1_omnychat_proto_msgTypes[0].OneofWrappers = []any{
 		(*Envelope_Error)(nil),
 		(*Envelope_Auth)(nil),
 		(*Envelope_AuthOk)(nil),
@@ -1690,17 +1690,17 @@ func file_omnichat_v1_omnichat_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_omnichat_v1_omnichat_proto_rawDesc), len(file_omnichat_v1_omnichat_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_omnychat_v1_omnychat_proto_rawDesc), len(file_omnychat_v1_omnychat_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   19,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_omnichat_v1_omnichat_proto_goTypes,
-		DependencyIndexes: file_omnichat_v1_omnichat_proto_depIdxs,
-		MessageInfos:      file_omnichat_v1_omnichat_proto_msgTypes,
+		GoTypes:           file_omnychat_v1_omnychat_proto_goTypes,
+		DependencyIndexes: file_omnychat_v1_omnychat_proto_depIdxs,
+		MessageInfos:      file_omnychat_v1_omnychat_proto_msgTypes,
 	}.Build()
-	File_omnichat_v1_omnichat_proto = out.File
-	file_omnichat_v1_omnichat_proto_goTypes = nil
-	file_omnichat_v1_omnichat_proto_depIdxs = nil
+	File_omnychat_v1_omnychat_proto = out.File
+	file_omnychat_v1_omnychat_proto_goTypes = nil
+	file_omnychat_v1_omnychat_proto_depIdxs = nil
 }

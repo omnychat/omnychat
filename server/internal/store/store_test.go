@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/OluwapelumiG/omnichat/server/internal/store"
+	"github.com/omnychat/omnychat/server/internal/store"
 )
 
 func TestInsertMessageIdempotent(t *testing.T) {

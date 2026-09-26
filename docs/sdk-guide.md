@@ -6,10 +6,10 @@ Headless TypeScript clients. You keep your own chat UI.
 
 | Package | Role |
 | --- | --- |
-| `@omnichat/client` | Core: connect, rooms, send, sync, outbox |
-| `@omnichat/react` | Hooks: `useOmniChat`, `useRoom`, `useConnection` (web + React Native) |
-| `@omnichat/vue` | Vue 3 composables (same surface as React) |
-| `@omnichat/storage-sqlite` | SQLite storage for Expo / React Native |
+| `@omnychat/client` | Core: connect, rooms, send, sync, outbox |
+| `@omnychat/react` | Hooks: `useOmnyChat`, `useRoom`, `useConnection` (web + React Native) |
+| `@omnychat/vue` | Vue 3 composables (same surface as React) |
+| `@omnychat/storage-sqlite` | SQLite storage for Expo / React Native |
 
 ## Setup (workspace)
 
@@ -27,12 +27,12 @@ cd clients/typescript && npm run publish:dry
 
 ```ts
 import {
-  createOmniChat,
+  createOmnyChat,
   createMemoryStorage,      // Node / tests
   createIndexedDBStorage,  // browsers
-} from '@omnichat/client';
+} from '@omnychat/client';
 
-const client = createOmniChat({
+const client = createOmnyChat({
   url: 'wss://chat.example.com/v1/ws',
   tokenProvider: () => fetchToken(), // your auth; JWT sub = user id
   storage: createIndexedDBStorage(),
@@ -72,7 +72,7 @@ Every joined connection receives the broadcast. Gate who may learn `group-42` in
 ## React (web or React Native)
 
 ```tsx
-import { OmniChatProvider, useRoom, useConnection } from '@omnichat/react';
+import { OmnyChatProvider, useRoom, useConnection } from '@omnychat/react';
 
 function Chat({ roomId }: { roomId: string }) {
   const state = useConnection();
@@ -92,28 +92,28 @@ function Chat({ roomId }: { roomId: string }) {
 }
 
 // Wrap once:
-// <OmniChatProvider client={client}><Chat roomId="group-42" /></OmniChatProvider>
+// <OmnyChatProvider client={client}><Chat roomId="group-42" /></OmnyChatProvider>
 ```
 
 ## Vue 3
 
 ```ts
 import { createApp } from 'vue';
-import { createOmniChat, createIndexedDBStorage } from '@omnichat/client';
-import { OmniChatPlugin, useRoom, useConnection } from '@omnichat/vue';
+import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
+import { OmnyChatPlugin, useRoom, useConnection } from '@omnychat/vue';
 
-const client = createOmniChat({
+const client = createOmnyChat({
   url: 'ws://localhost:8080/v1/ws',
   tokenProvider: () => fetchToken(),
   storage: createIndexedDBStorage(),
 });
 
-createApp(App).use(OmniChatPlugin, { client }).mount('#app');
+createApp(App).use(OmnyChatPlugin, { client }).mount('#app');
 ```
 
 ```vue
 <script setup lang="ts">
-import { useConnection, useRoom } from '@omnichat/vue';
+import { useConnection, useRoom } from '@omnychat/vue';
 const state = useConnection();
 const snap = useRoom('group-42');
 </script>
@@ -123,18 +123,18 @@ const snap = useRoom('group-42');
 
 ```ts
 import * as SQLite from 'expo-sqlite';
-import { createOmniChat } from '@omnichat/client';
-import { createSqliteStorage } from '@omnichat/storage-sqlite';
+import { createOmnyChat } from '@omnychat/client';
+import { createSqliteStorage } from '@omnychat/storage-sqlite';
 
 const storage = await createSqliteStorage(SQLite.openDatabaseAsync);
-const client = createOmniChat({ url, tokenProvider, storage });
+const client = createOmnyChat({ url, tokenProvider, storage });
 ```
 
 ## Smoke test (Node)
 
 ```bash
 make run   # terminal 1
-cd clients/typescript && OMNICHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnichat/node-smoke
+cd clients/typescript && OMNYCHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnychat/node-smoke
 ```
 
 See also [Sync model](sync-model.md) and [Roadmap](roadmap.md).

@@ -1,19 +1,19 @@
-# @omnichat/vue
+# @omnychat/vue
 
-Vue 3 composables for OmniChat.
+Vue 3 composables for OmnyChat.
 
 ```ts
 import { createApp } from 'vue';
-import { createOmniChat, createIndexedDBStorage } from '@omnichat/client';
-import { OmniChatPlugin, useRoom, useConnection } from '@omnichat/vue';
+import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
+import { OmnyChatPlugin, useRoom, useConnection } from '@omnychat/vue';
 
-const client = createOmniChat({
+const client = createOmnyChat({
   url: 'ws://localhost:8080/v1/ws',
   tokenProvider: () => fetchToken(),
   storage: createIndexedDBStorage(),
 });
 
-createApp(App).use(OmniChatPlugin, { client }).mount('#app');
+createApp(App).use(OmnyChatPlugin, { client }).mount('#app');
 ```
 
 See [SDK guide](../../../docs/sdk-guide.md).

@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	"github.com/OluwapelumiG/omnichat/server/internal/auth"
-	"github.com/OluwapelumiG/omnichat/server/internal/store"
+	"github.com/omnychat/omnychat/server/internal/auth"
+	"github.com/omnychat/omnychat/server/internal/store"
 )
 
 type Server struct {

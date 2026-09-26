@@ -4,7 +4,7 @@ import type {
   StoredMessage,
   StoredReceipt,
   Storage,
-} from "@omnichat/client";
+} from "@omnychat/client";
 
 /**
  * Minimal async SQLite surface compatible with expo-sqlite's openDatabaseAsync API.
@@ -73,7 +73,7 @@ export class SqliteStorage implements Storage {
 
   constructor(
     private readonly openDatabase: OpenDatabase,
-    private readonly dbName = "omnichat.db",
+    private readonly dbName = "omnychat.db",
   ) {}
 
   async open(): Promise<void> {
@@ -356,12 +356,12 @@ function rowToMsg(r: MsgRow): StoredMessage {
  *
  * @example
  * import * as SQLite from 'expo-sqlite';
- * import { createSqliteStorage } from '@omnichat/storage-sqlite';
+ * import { createSqliteStorage } from '@omnychat/storage-sqlite';
  * const storage = await createSqliteStorage(SQLite.openDatabaseAsync);
  */
 export async function createSqliteStorage(
   openDatabase: OpenDatabase,
-  dbName = "omnichat.db",
+  dbName = "omnychat.db",
 ): Promise<Storage> {
   const storage = new SqliteStorage(openDatabase, dbName);
   await storage.open();

@@ -1,9 +1,9 @@
-# @omnichat/react
+# @omnychat/react
 
-React hooks for OmniChat — works with React DOM and React Native when paired with `@omnichat/client` (+ `@omnichat/storage-sqlite` on RN).
+React hooks for OmnyChat — works with React DOM and React Native when paired with `@omnychat/client` (+ `@omnychat/storage-sqlite` on RN).
 
 ```tsx
-import { OmniChatProvider, useRoom, useConnection } from '@omnichat/react';
+import { OmnyChatProvider, useRoom, useConnection } from '@omnychat/react';
 ```
 
 See [SDK guide](../../../docs/sdk-guide.md).

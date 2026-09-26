@@ -5,22 +5,22 @@ export PATH := $(shell go env GOPATH)/bin:$(CURDIR)/.tools/protoc/bin:$(PATH)
 
 proto:
 	@test -x "$(PROTOC)" || (echo "protoc not found; place at .tools/protoc/bin/protoc or set PROTOC="; exit 1)
-	$(PROTOC) -I proto --go_out=. --go_opt=module=github.com/OluwapelumiG/omnichat proto/omnichat/v1/omnichat.proto
+	$(PROTOC) -I proto --go_out=. --go_opt=module=github.com/omnychat/omnychat proto/omnychat/v1/omnychat.proto
 
 proto-ts:
 	cd clients/typescript && npm run proto
 
 build:
 	mkdir -p bin
-	go build -o bin/omnichat ./server/cmd/omnichat
+	go build -o bin/omnychat ./server/cmd/omnychat
 
 build-ts:
 	cd clients/typescript && npm run build
 
 run: build
-	OMNICHAT_JWT_SECRET=$${OMNICHAT_JWT_SECRET:-dev-secret-change-me} \
-	OMNICHAT_DB_PATH=$${OMNICHAT_DB_PATH:-./data/omnichat.db} \
-	./bin/omnichat
+	OMNYCHAT_JWT_SECRET=$${OMNYCHAT_JWT_SECRET:-dev-secret-change-me} \
+	OMNYCHAT_DB_PATH=$${OMNYCHAT_DB_PATH:-./data/omnychat.db} \
+	./bin/omnychat
 
 test:
 	go test ./...
@@ -29,10 +29,10 @@ test-ts:
 	cd clients/typescript && npm test
 
 docker:
-	docker build -t omnichat:dev .
+	docker build -t omnychat:dev .
 
 docker-up:
-	OMNICHAT_JWT_SECRET=$${OMNICHAT_JWT_SECRET:-dev-secret-change-me} docker compose up --build
+	OMNYCHAT_JWT_SECRET=$${OMNYCHAT_JWT_SECRET:-dev-secret-change-me} docker compose up --build
 
 docs:
 	cd docs && npm install && npm run dev

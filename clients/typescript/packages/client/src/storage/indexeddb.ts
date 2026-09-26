@@ -6,7 +6,7 @@ import type {
 } from "../types.js";
 import type { Storage } from "./types.js";
 
-const DB_NAME = "omnichat";
+const DB_NAME = "omnychat";
 const DB_VERSION = 1;
 
 function msgKey(roomId: string, clientMsgId: string): string {

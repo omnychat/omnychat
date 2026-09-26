@@ -5,7 +5,7 @@ Run the gateway, create a room, send a message.
 ## 1. Start the gateway
 
 ```bash
-export OMNICHAT_JWT_SECRET="dev-secret-change-me"
+export OMNYCHAT_JWT_SECRET="dev-secret-change-me"
 docker compose up --build
 ```
 
@@ -35,7 +35,7 @@ go run ./examples/echo-client \
   -secret dev-secret-change-me \
   -sub alice \
   -room lobby \
-  -body "hello omnichat"
+  -body "hello omnychat"
 ```
 
 Expected:
@@ -44,19 +44,19 @@ Expected:
 authed as alice
 joined lobby latest_seq=0
 ack server_msg_id=… seq=1
-event from=alice seq=1 body="hello omnichat"
+event from=alice seq=1 body="hello omnychat"
 ok
 ```
 
 ## 4. Wire your app
 
-See the root [README](https://github.com/OluwapelumiG/omnichat/blob/main/README.md) integrate steps and [SDK guide](sdk-guide.md).
+See the root [README](https://github.com/omnychat/omnychat/blob/main/README.md) integrate steps and [SDK guide](sdk-guide.md).
 
-Optional Node smoke (validates `@omnichat/client`):
+Optional Node smoke (validates `@omnychat/client`):
 
 ```bash
 cd clients/typescript && npm install && npm run build
-OMNICHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnichat/node-smoke
+OMNYCHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnychat/node-smoke
 ```
 
 Next: [How it works](how-it-works.md) · [Deploy](deploy.md)

@@ -10,16 +10,16 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/OluwapelumiG/omnichat/server/internal/api"
-	"github.com/OluwapelumiG/omnichat/server/internal/auth"
-	"github.com/OluwapelumiG/omnichat/server/internal/bus"
-	"github.com/OluwapelumiG/omnichat/server/internal/config"
-	"github.com/OluwapelumiG/omnichat/server/internal/hub"
-	"github.com/OluwapelumiG/omnichat/server/internal/metrics"
-	"github.com/OluwapelumiG/omnichat/server/internal/protocol"
-	"github.com/OluwapelumiG/omnichat/server/internal/store"
-	"github.com/OluwapelumiG/omnichat/server/internal/webhook"
-	"github.com/OluwapelumiG/omnichat/server/internal/ws"
+	"github.com/omnychat/omnychat/server/internal/api"
+	"github.com/omnychat/omnychat/server/internal/auth"
+	"github.com/omnychat/omnychat/server/internal/bus"
+	"github.com/omnychat/omnychat/server/internal/config"
+	"github.com/omnychat/omnychat/server/internal/hub"
+	"github.com/omnychat/omnychat/server/internal/metrics"
+	"github.com/omnychat/omnychat/server/internal/protocol"
+	"github.com/omnychat/omnychat/server/internal/store"
+	"github.com/omnychat/omnychat/server/internal/webhook"
+	"github.com/omnychat/omnychat/server/internal/ws"
 )
 
 func main() {
@@ -109,7 +109,7 @@ func main() {
 	}
 
 	go func() {
-		log.Info("omnichat listening",
+		log.Info("omnychat listening",
 			"addr", cfg.HTTPAddr,
 			"db", cfg.DBPath,
 			"redis", cfg.RedisURL != "",

@@ -1,4 +1,4 @@
-module github.com/OluwapelumiG/omnichat
+module github.com/omnychat/omnychat
 
 go 1.22
 

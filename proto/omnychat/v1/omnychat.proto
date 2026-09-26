@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package omnichat.v1;
+package omnychat.v1;
 
-option go_package = "github.com/OluwapelumiG/omnichat/pkg/pb;pb";
+option go_package = "github.com/omnychat/omnychat/pkg/pb;pb";
 
 // Envelope wraps every WebSocket binary frame.
 message Envelope {

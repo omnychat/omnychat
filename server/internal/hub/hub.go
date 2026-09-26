@@ -4,8 +4,8 @@ import (
 	"log/slog"
 	"sync"
 
-	"github.com/OluwapelumiG/omnichat/server/internal/bus"
-	"github.com/OluwapelumiG/omnichat/server/internal/metrics"
+	"github.com/omnychat/omnychat/server/internal/bus"
+	"github.com/omnychat/omnychat/server/internal/metrics"
 )
 
 // Conn is the subset of a WebSocket connection the hub needs.

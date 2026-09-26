@@ -11,7 +11,7 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-const channel = "omnichat:broadcast"
+const channel = "omnychat:broadcast"
 
 // Publisher fans events out to other gateway instances.
 type Publisher interface {

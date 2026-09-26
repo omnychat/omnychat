@@ -70,8 +70,8 @@ func (d *Dispatcher) sendWithRetry(ev Event) {
 			return
 		}
 		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("X-OmniChat-Signature", "sha256="+sig)
-		req.Header.Set("User-Agent", "omnichat-webhook/1")
+		req.Header.Set("X-OmnyChat-Signature", "sha256="+sig)
+		req.Header.Set("User-Agent", "omnychat-webhook/1")
 		res, err := client.Do(req)
 		cancel()
 		if err == nil && res.StatusCode >= 200 && res.StatusCode < 300 {
@@ -104,7 +104,7 @@ func sign(secret string, body []byte) string {
 	return hex.EncodeToString(mac.Sum(nil))
 }
 
-// VerifySignature checks X-OmniChat-Signature against the raw body.
+// VerifySignature checks X-OmnyChat-Signature against the raw body.
 func VerifySignature(secret, header string, body []byte) bool {
 	const prefix = "sha256="
 	if len(header) < len(prefix) || header[:len(prefix)] != prefix {

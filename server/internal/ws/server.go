@@ -8,9 +8,9 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-	"github.com/OluwapelumiG/omnichat/server/internal/hub"
-	"github.com/OluwapelumiG/omnichat/pkg/pb"
-	"github.com/OluwapelumiG/omnichat/server/internal/protocol"
+	"github.com/omnychat/omnychat/server/internal/hub"
+	"github.com/omnychat/omnychat/pkg/pb"
+	"github.com/omnychat/omnychat/server/internal/protocol"
 	"google.golang.org/protobuf/proto"
 )
 

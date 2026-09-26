@@ -14,45 +14,45 @@ import {
 } from "vue";
 import type {
   ConnectionState,
-  OmniChatClient,
+  OmnyChatClient,
   RoomSnapshot,
   StoredMessage,
-} from "@omnichat/client";
+} from "@omnychat/client";
 
-const OmniChatKey: InjectionKey<OmniChatClient> = Symbol("omnichat");
+const OmnyChatKey: InjectionKey<OmnyChatClient> = Symbol("omnychat");
 
-export interface OmniChatPluginOptions {
-  client: OmniChatClient;
+export interface OmnyChatPluginOptions {
+  client: OmnyChatClient;
 }
 
-/** Vue plugin: `app.use(OmniChatPlugin, { client })` */
-export const OmniChatPlugin: Plugin<[OmniChatPluginOptions]> = {
-  install(app: App, options: OmniChatPluginOptions) {
-    provideOmniChat(options.client, app);
+/** Vue plugin: `app.use(OmnyChatPlugin, { client })` */
+export const OmnyChatPlugin: Plugin<[OmnyChatPluginOptions]> = {
+  install(app: App, options: OmnyChatPluginOptions) {
+    provideOmnyChat(options.client, app);
   },
 };
 
 /** Provide client without the plugin (e.g. in setup / tests). */
-export function provideOmniChat(client: OmniChatClient, app?: App): void {
+export function provideOmnyChat(client: OmnyChatClient, app?: App): void {
   if (app) {
-    app.provide(OmniChatKey, client);
+    app.provide(OmnyChatKey, client);
   } else {
-    provide(OmniChatKey, client);
+    provide(OmnyChatKey, client);
   }
 }
 
-export function useOmniChat(): OmniChatClient {
-  const client = inject(OmniChatKey);
+export function useOmnyChat(): OmnyChatClient {
+  const client = inject(OmnyChatKey);
   if (!client) {
     throw new Error(
-      "useOmniChat() requires OmniChatPlugin or provideOmniChat()",
+      "useOmnyChat() requires OmnyChatPlugin or provideOmnyChat()",
     );
   }
   return client;
 }
 
 export function useConnection(): Ref<ConnectionState> {
-  const client = useOmniChat();
+  const client = useOmnyChat();
   const state = ref<ConnectionState>(client.state);
   const unsub = client.onConnection((s) => {
     state.value = s;
@@ -64,7 +64,7 @@ export function useConnection(): Ref<ConnectionState> {
 export function useRoom(
   roomId: MaybeRefOrGetter<string>,
 ): Ref<RoomSnapshot | null> {
-  const client = useOmniChat();
+  const client = useOmnyChat();
   const snap = ref<RoomSnapshot | null>(null);
   let unsub: (() => void) | undefined;
 

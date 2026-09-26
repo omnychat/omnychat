@@ -1,15 +1,14 @@
 import { defineConfig } from 'vitepress'
 
-/** Replace before publishing. */
-const GITHUB_USER = 'OluwapelumiG'
-const REPO = 'omnichat'
+const GITHUB_USER = 'omnychat'
+const REPO = 'omnychat'
 const GITHUB_REPO = `https://github.com/${GITHUB_USER}/${REPO}`
 
 export default defineConfig({
-  title: 'OmniChat',
+  title: 'OmnyChat',
   description:
     'Self-hostable real-time messaging — WebSockets, ordered delivery, persistence.',
-  // Project Pages: https://OluwapelumiG.github.io/omnichat/
+  // Project Pages: https://omnychat.github.io/omnychat/
   // Use '/' only for a user/org root site or a custom domain.
   base: `/${REPO}/`,
   cleanUrls: true,
@@ -42,7 +41,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: undefined,
-    siteTitle: 'OmniChat',
+    siteTitle: 'OmnyChat',
     nav: [
       { text: 'Get started', link: '/getting-started' },
       { text: 'SDK', link: '/sdk-guide' },
@@ -76,7 +75,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Apache License 2.0',
-      copyright: 'OmniChat',
+      copyright: 'OmnyChat',
     },
   },
 })

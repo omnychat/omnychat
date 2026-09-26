@@ -1,7 +1,7 @@
 export {
-  OmniChatClient,
-  createOmniChat,
-  type OmniChatOptions,
+  OmnyChatClient,
+  createOmnyChat,
+  type OmnyChatOptions,
   type TokenProvider,
   type RoomListener,
   type ConnectionListener,

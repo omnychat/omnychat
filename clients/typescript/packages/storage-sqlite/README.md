@@ -1,10 +1,10 @@
-# @omnichat/storage-sqlite
+# @omnychat/storage-sqlite
 
 SQLite `Storage` adapter for React Native / Expo.
 
 ```ts
 import * as SQLite from 'expo-sqlite';
-import { createSqliteStorage } from '@omnichat/storage-sqlite';
+import { createSqliteStorage } from '@omnychat/storage-sqlite';
 
 const storage = await createSqliteStorage(SQLite.openDatabaseAsync);
 ```

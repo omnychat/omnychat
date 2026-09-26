@@ -2,16 +2,16 @@
 layout: home
 
 hero:
-  name: OmniChat
+  name: OmnyChat
   text: Self-hostable real-time messaging
-  tagline: You own auth and UI. OmniChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
+  tagline: You own auth and UI. OmnyChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
   actions:
     - theme: brand
       text: Get started
       link: /getting-started
     - theme: alt
       text: GitHub
-      link: https://github.com/OluwapelumiG/omnichat
+      link: https://github.com/omnychat/omnychat
 
 features:
   - title: Rooms, not special cases

@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/OluwapelumiG/omnichat/pkg/pb"
-	"github.com/OluwapelumiG/omnichat/server/internal/auth"
-	"github.com/OluwapelumiG/omnichat/server/internal/hub"
-	"github.com/OluwapelumiG/omnichat/server/internal/metrics"
-	"github.com/OluwapelumiG/omnichat/server/internal/store"
-	"github.com/OluwapelumiG/omnichat/server/internal/webhook"
+	"github.com/omnychat/omnychat/pkg/pb"
+	"github.com/omnychat/omnychat/server/internal/auth"
+	"github.com/omnychat/omnychat/server/internal/hub"
+	"github.com/omnychat/omnychat/server/internal/metrics"
+	"github.com/omnychat/omnychat/server/internal/store"
+	"github.com/omnychat/omnychat/server/internal/webhook"
 	"google.golang.org/protobuf/proto"
 )
 

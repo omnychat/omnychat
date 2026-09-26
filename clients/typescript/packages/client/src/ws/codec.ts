@@ -11,10 +11,10 @@ import {
   SyncRoomSchema,
   TypingSchema,
   type Envelope,
-} from "../proto/omnichat/v1/omnichat_pb.js";
+} from "../proto/omnychat/v1/omnychat_pb.js";
 
 export type { Envelope };
-export * from "../proto/omnichat/v1/omnichat_pb.js";
+export * from "../proto/omnychat/v1/omnychat_pb.js";
 
 export function encodeEnvelope(env: Envelope): Uint8Array {
   return toBinary(EnvelopeSchema, env);

@@ -1,11 +1,11 @@
 # How it works
 
-OmniChat is a **messaging engine**, not a full chat app. You bring auth and UI; OmniChat moves messages in real time and keeps them ordered.
+OmnyChat is a **messaging engine**, not a full chat app. You bring auth and UI; OmnyChat moves messages in real time and keeps them ordered.
 
 ## Big picture
 
 ```
-Your app (login) ──JWT──► OmniChat gateway
+Your app (login) ──JWT──► OmnyChat gateway
                               │
                               ├─ WebSocket hub (live fan-out)
                               └─ SQLite (messages + receipts)
@@ -25,11 +25,11 @@ A room is a channel. There is no separate “DM” or “group” type:
 
 Create rooms with `POST /v1/rooms` and `Authorization: Bearer <JWT>`. Clients must **join** on the WebSocket before they can send or receive live traffic there.
 
-**Membership policy is yours.** OmniChat records who has joined for delivery, but does not yet expose list/invite/kick APIs or enforce ACL. Store the intended member list in your app DB and only hand room ids (and JWTs) to allowed users.
+**Membership policy is yours.** OmnyChat records who has joined for delivery, but does not yet expose list/invite/kick APIs or enforce ACL. Store the intended member list in your app DB and only hand room ids (and JWTs) to allowed users.
 
 ## Auth
 
-OmniChat does not store passwords. It only **verifies** JWTs you mint (HS256 secret or RS256 public key). See [Deploy](deploy.md) for env vars.
+OmnyChat does not store passwords. It only **verifies** JWTs you mint (HS256 secret or RS256 public key). See [Deploy](deploy.md) for env vars.
 
 ## Ordering: sequence numbers
 
@@ -54,7 +54,7 @@ Send `SyncRoom` with `since_seq` to fetch messages missed while offline. Live ev
 | --- | --- |
 | Gateway, Docker, protobuf protocol | Live npm publish |
 | Typing + read receipts | Multi-node / Postgres |
-| `@omnichat/client` + React / Vue / RN storage | REST auth, member list / ACL |
+| `@omnychat/client` + React / Vue / RN storage | REST auth, member list / ACL |
 | Ordered rooms (1:1 + group) | Message edit/delete |
 
 Details: [Roadmap](roadmap.md)

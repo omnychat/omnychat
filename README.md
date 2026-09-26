@@ -1,6 +1,6 @@
-# OmniChat
+# OmnyChat
 
-Self-hostable real-time messaging. You own auth and UI; OmniChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
+Self-hostable real-time messaging. You own auth and UI; OmnyChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
 
 **Group chat and 1:1 are the same thing:** a room with one or many users. There is no separate group API.
 
@@ -9,7 +9,7 @@ Self-hostable real-time messaging. You own auth and UI; OmniChat owns WebSockets
 ### 1. Run the gateway
 
 ```bash
-export OMNICHAT_JWT_SECRET="dev-secret-change-me"
+export OMNYCHAT_JWT_SECRET="dev-secret-change-me"
 docker compose up --build
 # health: curl http://localhost:8080/healthz
 # WS:     ws://localhost:8080/v1/ws
@@ -32,7 +32,7 @@ Use a stable `id` you control (e.g. `dm-{userA}-{userB}` or `group-{uuid}`).
 
 ### 3. Mint a JWT (your auth)
 
-Sign HS256 with the same `OMNICHAT_JWT_SECRET`. Claim `sub` = your user id. OmniChat does not store passwords — it only verifies tokens.
+Sign HS256 with the same `OMNYCHAT_JWT_SECRET`. Claim `sub` = your user id. OmnyChat does not store passwords — it only verifies tokens.
 
 ### 4. Connect from your app
 
@@ -43,9 +43,9 @@ cd clients/typescript && npm install && npm run build
 ```
 
 ```ts
-import { createOmniChat, createIndexedDBStorage } from '@omnichat/client';
+import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
 
-const client = createOmniChat({
+const client = createOmnyChat({
   url: 'ws://localhost:8080/v1/ws',
   tokenProvider: () => fetchYourJwt(), // must include sub = user id
   storage: createIndexedDBStorage(),   // or createMemoryStorage() / SQLite on RN
@@ -59,15 +59,15 @@ client.subscribeRoom('team-engineering', (snap) => {
 });
 ```
 
-**React:** wrap with `OmniChatProvider`, then `useRoom(roomId)` / `useConnection()` from `@omnichat/react`.  
-**Vue:** `OmniChatPlugin` + `useRoom` / `useConnection` from `@omnichat/vue`.  
-**React Native:** `@omnichat/storage-sqlite` + Expo SQLite.
+**React:** wrap with `OmnyChatProvider`, then `useRoom(roomId)` / `useConnection()` from `@omnychat/react`.  
+**Vue:** `OmnyChatPlugin` + `useRoom` / `useConnection` from `@omnychat/vue`.  
+**React Native:** `@omnychat/storage-sqlite` + Expo SQLite.
 
 Smoke-test without UI:
 
 ```bash
 go run ./examples/echo-client -secret dev-secret-change-me -sub alice -room team-engineering -body "hi"
-# or TS: cd clients/typescript && OMNICHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnichat/node-smoke
+# or TS: cd clients/typescript && OMNYCHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnychat/node-smoke
 ```
 
 ## Group chat
@@ -77,7 +77,7 @@ go run ./examples/echo-client -secret dev-secret-change-me -sub alice -room team
 3. Each member connects with their own JWT and calls `joinRoom(roomId)`.
 4. `sendMessage` broadcasts to everyone currently joined; ordering is by `seq`.
 
-OmniChat does not yet list/invite/kick members. Gate joins in your backend (only give JWTs / room ids to allowed users). `POST /v1/rooms` requires a Bearer JWT.
+OmnyChat does not yet list/invite/kick members. Gate joins in your backend (only give JWTs / room ids to allowed users). `POST /v1/rooms` requires a Bearer JWT.
 
 Typing: `client.setTyping(roomId, true)`. Read receipts: `client.sendReadReceipt(roomId, lastSeq)`.
 
@@ -87,7 +87,7 @@ Typing: `client.setTyping(roomId, true)`. Read receipts: `client.sendReadReceipt
 | --- | --- |
 | Live messages | WebSocket hub fan-out per room |
 | Order + idempotency | Per-room `seq`; client message IDs |
-| Offline catch-up | `SyncRoom` / handled by `@omnichat/client` |
+| Offline catch-up | `SyncRoom` / handled by `@omnychat/client` |
 | Persistence | SQLite (gateway); IndexedDB / SQLite on clients |
 | Typing + receipts | Built into the protocol |
 
@@ -103,30 +103,37 @@ Typing: `client.setTyping(roomId, true)`. Read receipts: `client.sendReadReceipt
 | [Sync model](docs/sync-model.md) | Client persistence + reconnect |
 | [Roadmap](docs/roadmap.md) | What’s next |
 
-Local docs site (VitePress): `make docs` → http://localhost:5173/omnichat/
+Local docs site (VitePress): `make docs` → http://localhost:5173/omnychat/
 
-After you publish: `https://OluwapelumiG.github.io/omnichat/`
+After you publish: `https://omnychat.github.io/omnychat/`
 
 ## Publish
 
 | What | Where |
 | --- | --- |
-| Source code | [github.com/OluwapelumiG/omnichat](https://github.com/OluwapelumiG/omnichat) |
-| Docs site | GitHub Pages — `https://OluwapelumiG.github.io/omnichat/` |
-| Client packages | npm (`@omnichat/*`) when ready — not published yet |
+| Source code | [github.com/omnychat/omnychat](https://github.com/omnychat/omnychat) |
+| Docs site | GitHub Pages — `https://omnychat.github.io/omnychat/` |
+| Client packages | npm (`@omnychat/*`) when ready — not published yet |
 | Do not publish | `chat-demo/` (local E2E only; lives outside this repo) |
 
 When you are ready:
 
-1. From this directory: commit, `git remote add origin git@github.com:OluwapelumiG/omnichat.git`, `git push -u origin main`.
-2. Repo **Settings → Pages → Source: GitHub Actions**. The workflow [`.github/workflows/docs.yml`](.github/workflows/docs.yml) builds and deploys on push to `main`.
-3. After the first green deploy, the docs site is live at the URL above.
+1. Create the **omnychat** GitHub org and transfer (or recreate) this repo as `omnychat/omnychat`. Then: `git remote set-url origin git@github.com:omnychat/omnychat.git` and `git push -u origin main`.
+2. Create the **@omnychat** npm org (npmjs.com → orgs), `npm login`, then from `clients/typescript`:
+   ```bash
+   npm install && npm run build
+   npm publish -w @omnychat/client --access public
+   npm publish -w @omnychat/react --access public
+   npm publish -w @omnychat/storage-sqlite --access public
+   npm publish -w @omnychat/vue --access public
+   ```
+3. Repo **Settings → Pages → Source: GitHub Actions** so docs deploy to `https://omnychat.github.io/omnychat/`.
 ## Layout
 
 ```
 server/     Go gateway
 proto/      Protobuf schemas
-clients/typescript/   @omnichat/client, react, vue, storage-sqlite + node-smoke
+clients/typescript/   @omnychat/client, react, vue, storage-sqlite + node-smoke
 examples/echo-client  Go smoke client
 docs/       Guides + VitePress site
 ```

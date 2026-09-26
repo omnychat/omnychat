@@ -4,7 +4,7 @@ Smoke-test client for Phase 1.
 
 ```bash
 # Terminal 1: start gateway
-export OMNICHAT_JWT_SECRET=dev-secret-change-me
+export OMNYCHAT_JWT_SECRET=dev-secret-change-me
 make run
 
 # Terminal 2: send a message

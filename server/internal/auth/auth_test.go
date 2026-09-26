@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/OluwapelumiG/omnichat/server/internal/auth"
+	"github.com/omnychat/omnychat/server/internal/auth"
 )
 
 func TestVerifyHS256(t *testing.T) {

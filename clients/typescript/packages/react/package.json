@@ -1,7 +1,7 @@
 {
-  "name": "@omnichat/react",
+  "name": "@omnychat/react",
   "version": "0.1.0",
-  "description": "React hooks for OmniChat (web + React Native)",
+  "description": "React hooks for OmnyChat (web + React Native)",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,11 +20,11 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "@omnichat/client": "*",
+    "@omnychat/client": "*",
     "react": ">=18"
   },
   "devDependencies": {
-    "@omnichat/client": "*",
+    "@omnychat/client": "*",
     "@types/react": "^18.3.18",
     "react": "^18.3.1",
     "typescript": "^5.7.3"
@@ -33,12 +33,12 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OluwapelumiG/omnichat.git",
+    "url": "git+https://github.com/omnychat/omnychat.git",
     "directory": "clients/typescript/packages/react"
   },
-  "homepage": "https://github.com/OluwapelumiG/omnichat#readme",
+  "homepage": "https://github.com/omnychat/omnychat#readme",
   "bugs": {
-    "url": "https://github.com/OluwapelumiG/omnichat/issues"
+    "url": "https://github.com/omnychat/omnychat/issues"
   },
   "publishConfig": {
     "access": "public"
