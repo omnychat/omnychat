@@ -26,8 +26,6 @@ jobs:
           cache-dependency-path: docs/package-lock.json
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - name: Install and build
         working-directory: docs
         run: |
