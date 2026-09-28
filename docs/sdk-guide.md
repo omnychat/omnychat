@@ -1,30 +1,30 @@
 # SDK guide
 
-Headless TypeScript clients. You keep your own chat UI.
+Headless TypeScript SDK for your chat UI. Install from npm, keep your own screens and styling.
 
-## Install from npm
+## Install
 
 ```bash
 npm install @omnychat/client
-# optional UI bindings:
-npm install @omnychat/react          # React / React Native hooks
-npm install @omnychat/vue            # Vue 3 composables
-npm install @omnychat/storage-sqlite # Expo / React Native SQLite storage
+# optional:
+npm install @omnychat/react
+npm install @omnychat/vue
+npm install @omnychat/storage-sqlite
 ```
 
-| Package | Role | npm |
-| --- | --- | --- |
-| `@omnychat/client` | Core: connect, rooms, send, sync, outbox | [npm](https://www.npmjs.com/package/@omnychat/client) |
-| `@omnychat/react` | Hooks: `useOmnyChat`, `useRoom`, `useConnection` (web + React Native) | [npm](https://www.npmjs.com/package/@omnychat/react) |
-| `@omnychat/vue` | Vue 3 composables (same surface as React) | [npm](https://www.npmjs.com/package/@omnychat/vue) |
-| `@omnychat/storage-sqlite` | SQLite storage for Expo / React Native | [npm](https://www.npmjs.com/package/@omnychat/storage-sqlite) |
+| Package | Role |
+| --- | --- |
+| [`@omnychat/client`](https://www.npmjs.com/package/@omnychat/client) | Connect, rooms, send, sync, outbox |
+| [`@omnychat/react`](https://www.npmjs.com/package/@omnychat/react) | `useOmnyChat`, `useRoom`, `useConnection` |
+| [`@omnychat/vue`](https://www.npmjs.com/package/@omnychat/vue) | Same surface as React, for Vue 3 |
+| [`@omnychat/storage-sqlite`](https://www.npmjs.com/package/@omnychat/storage-sqlite) | SQLite storage for Expo / React Native |
 
 ## Core usage
 
 ```ts
 import {
   createOmnyChat,
-  createMemoryStorage,      // Node / tests
+  createMemoryStorage,      // tests / Node
   createIndexedDBStorage,  // browsers
 } from '@omnychat/client';
 
@@ -32,40 +32,39 @@ const client = createOmnyChat({
   url: 'wss://chat.example.com/v1/ws',
   tokenProvider: () => fetchToken(), // your auth; JWT sub = user id
   storage: createIndexedDBStorage(),
-  // Node: WebSocketImpl: (await import('ws')).default
 });
 
 await client.connect();
 await client.joinRoom('team-engineering');
-await client.sendMessage('team-engineering', 'hello'); // optimistic + outbox
+await client.sendMessage('team-engineering', 'hello');
 await client.editMessage('team-engineering', serverMsgId, 'hello!');
 await client.deleteMessage('team-engineering', serverMsgId);
 client.subscribeRoom('team-engineering', (snap) => {
-  // snap.messages ordered by seq (pending last if no seq yet)
+  // snap.messages ordered by seq
 });
 
 client.setTyping('team-engineering', true);
 client.sendReadReceipt('team-engineering', lastSeq);
 ```
 
-Create the room once via REST (`POST /v1/rooms`) from your backend — not from this client.
+Create rooms once from **your backend** with `POST /v1/rooms` — not from the client SDK.
 
-## Group chat pattern
+## Group chat (and DMs)
+
+Group and 1:1 use the same room API:
 
 ```ts
-// Your backend already decided members = [alice, bob, carol]
-// and created room id "group-42"
+// Your backend chose members and created room id "group-42"
 
-// On each device, after login:
 await client.connect();
 await client.joinRoom('group-42');
 client.subscribeRoom('group-42', renderTimeline);
 await client.sendMessage('group-42', 'hey team');
 ```
 
-Every joined connection receives the broadcast. Gate who may learn `group-42` in your app.
+Everyone who has joined the room receives messages. Decide membership in your app (only give JWTs / room ids to allowed users).
 
-## React (web or React Native)
+## React
 
 ```tsx
 import { OmnyChatProvider, useRoom, useConnection } from '@omnychat/react';
@@ -87,7 +86,6 @@ function Chat({ roomId }: { roomId: string }) {
   );
 }
 
-// Wrap once:
 // <OmnyChatProvider client={client}><Chat roomId="group-42" /></OmnyChatProvider>
 ```
 
@@ -99,7 +97,7 @@ import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
 import { OmnyChatPlugin, useRoom, useConnection } from '@omnychat/vue';
 
 const client = createOmnyChat({
-  url: 'ws://localhost:8080/v1/ws',
+  url: 'wss://chat.example.com/v1/ws',
   tokenProvider: () => fetchToken(),
   storage: createIndexedDBStorage(),
 });
@@ -115,7 +113,7 @@ const snap = useRoom('group-42');
 </script>
 ```
 
-## React Native storage
+## React Native
 
 ```ts
 import * as SQLite from 'expo-sqlite';
@@ -126,11 +124,4 @@ const storage = await createSqliteStorage(SQLite.openDatabaseAsync);
 const client = createOmnyChat({ url, tokenProvider, storage });
 ```
 
-## Smoke test (Node)
-
-```bash
-make run   # terminal 1
-cd clients/typescript && OMNYCHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnychat/node-smoke
-```
-
-See also [Sync model](sync-model.md) and [Roadmap](roadmap.md).
+Also see [How it works](how-it-works.md) and [Offline & sync](sync-model.md).

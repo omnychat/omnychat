@@ -1,44 +1,48 @@
 # Getting started
 
-Install the client from npm, point it at a gateway, send a message.
+Add OmnyChat to your app: install the npm client, run a gateway, connect.
 
-## 1. Install from npm
+## 1. Install the client
 
 ```bash
 npm install @omnychat/client
 ```
 
-Optional packages:
+Optional UI helpers:
 
 ```bash
-npm install @omnychat/react          # React / React Native hooks
-npm install @omnychat/vue            # Vue 3 composables
+npm install @omnychat/react          # React / React Native
+npm install @omnychat/vue            # Vue 3
 npm install @omnychat/storage-sqlite # Expo / React Native SQLite
 ```
 
-| Package | npm |
+| Package | What it is |
 | --- | --- |
-| `@omnychat/client` | [npmjs.com/package/@omnychat/client](https://www.npmjs.com/package/@omnychat/client) |
-| `@omnychat/react` | [npmjs.com/package/@omnychat/react](https://www.npmjs.com/package/@omnychat/react) |
-| `@omnychat/vue` | [npmjs.com/package/@omnychat/vue](https://www.npmjs.com/package/@omnychat/vue) |
-| `@omnychat/storage-sqlite` | [npmjs.com/package/@omnychat/storage-sqlite](https://www.npmjs.com/package/@omnychat/storage-sqlite) |
+| [`@omnychat/client`](https://www.npmjs.com/package/@omnychat/client) | Core SDK — connect, rooms, send, sync |
+| [`@omnychat/react`](https://www.npmjs.com/package/@omnychat/react) | React hooks |
+| [`@omnychat/vue`](https://www.npmjs.com/package/@omnychat/vue) | Vue 3 composables |
+| [`@omnychat/storage-sqlite`](https://www.npmjs.com/package/@omnychat/storage-sqlite) | On-device SQLite for React Native |
 
-## 2. Run a gateway
+## 2. Run the gateway
 
-You need a WebSocket endpoint. Locally:
+Your app needs a WebSocket server. The fastest way is Docker:
 
 ```bash
 export OMNYCHAT_JWT_SECRET="dev-secret-change-me"
 docker compose up --build
-# health: curl http://localhost:8080/healthz
-# WS:     ws://localhost:8080/v1/ws
 ```
 
-Or `make run` (Go 1.22+). Production: [Deploy](deploy.md).
+- Health: `http://localhost:8080/healthz`
+- WebSocket: `ws://localhost:8080/v1/ws`
 
-## 3. Create a room + mint a JWT
+For production hosting, see [Deploy](deploy.md).
 
-From **your** backend (when a DM or group is created):
+## 3. Rooms and JWTs (your backend)
+
+OmnyChat does not replace your login system. Your backend:
+
+1. Creates a room when a chat (DM or group) should exist
+2. Issues a JWT for each signed-in user (`sub` = your user id), signed with the same `OMNYCHAT_JWT_SECRET`
 
 ```bash
 curl -s -X POST http://localhost:8080/v1/rooms \
@@ -47,41 +51,29 @@ curl -s -X POST http://localhost:8080/v1/rooms \
   -d '{"id":"lobby","name":"Lobby"}'
 ```
 
-Sign HS256 JWTs with the same `OMNYCHAT_JWT_SECRET`. Claim `sub` = your user id. OmnyChat does not store passwords.
+Use stable room ids you control (for example `dm-alice-bob` or `group-{uuid}`).
 
-## 4. Connect and send
+## 4. Connect from your app
 
 ```ts
 import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
 
 const client = createOmnyChat({
   url: 'ws://localhost:8080/v1/ws',
-  tokenProvider: () => fetchYourJwt(), // must include sub = user id
-  storage: createIndexedDBStorage(),   // or createMemoryStorage() / SQLite on RN
+  tokenProvider: () => fetchYourJwt(), // JWT sub = user id
+  storage: createIndexedDBStorage(),
 });
 
 await client.connect();
 await client.joinRoom('lobby');
 await client.sendMessage('lobby', 'hello');
 client.subscribeRoom('lobby', (snap) => {
-  // snap.messages ordered by seq
+  // snap.messages ordered by seq — render your own UI
 });
 ```
 
-**React:** `OmnyChatProvider` + `useRoom` / `useConnection` from `@omnychat/react`.  
-**Vue:** `OmnyChatPlugin` + same hooks from `@omnychat/vue`.  
-**React Native:** `@omnychat/storage-sqlite` + Expo SQLite.
+- **React:** wrap with `OmnyChatProvider`, then `useRoom(roomId)` / `useConnection()` from `@omnychat/react`
+- **Vue:** `OmnyChatPlugin` + `useRoom` / `useConnection` from `@omnychat/vue`
+- **React Native:** use `@omnychat/storage-sqlite` with Expo SQLite
 
-Full API: [SDK guide](sdk-guide.md).
-
-## Optional: smoke test without UI
-
-```bash
-go run ./examples/echo-client \
-  -secret dev-secret-change-me \
-  -sub alice \
-  -room lobby \
-  -body "hello omnychat"
-```
-
-Next: [How it works](how-it-works.md) · [Deploy](deploy.md)
+More examples: [SDK guide](sdk-guide.md). Concepts: [How it works](how-it-works.md).

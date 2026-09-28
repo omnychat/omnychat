@@ -3,21 +3,21 @@ layout: home
 
 hero:
   name: OmnyChat
-  text: Real-time messaging you host
-  tagline: Install @omnychat/client from npm. You own auth and UI — OmnyChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
+  text: Real-time chat for your app
+  tagline: Install @omnychat/client from npm. Keep your auth and UI — OmnyChat handles WebSockets, delivery order, persistence, typing, and receipts.
   actions:
     - theme: brand
       text: Get started
       link: /getting-started
     - theme: alt
-      text: GitHub
-      link: https://github.com/omnychat/omnychat
+      text: SDK guide
+      link: /sdk-guide
 
 features:
-  - title: Rooms, not special cases
-    details: Group chat and 1:1 are the same — a room with one or many users. No separate group API.
-  - title: Headless SDKs on npm
-    details: Install `@omnychat/client` plus React and Vue hooks. Bring your own chat UI.
-  - title: Self-hosted
-    details: Docker gateway, JWT you mint, SQLite by default. Deploy on your infrastructure.
+  - title: Built for your product
+    details: Drop messaging into an existing React, Vue, or React Native app. You own login and screens.
+  - title: npm packages
+    details: "@omnychat/client plus React and Vue helpers. No chat UI kit to fight — bring your own."
+  - title: Self-hosted gateway
+    details: Run the Docker gateway on your infra. Mint JWTs from your backend.
 ---

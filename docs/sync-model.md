@@ -1,52 +1,52 @@
-# Sync model
+# Offline & sync
 
-The TypeScript sync manager (`@omnychat/client`) owns local persistence, optimistic sends, and reconnect catch-up.
+`@omnychat/client` keeps a local copy of rooms and messages so your UI stays responsive offline and after reconnect.
 
-## Goals
+You usually only call `connect`, `joinRoom`, `sendMessage`, and `subscribeRoom`. Sync runs inside the client.
 
-- Optimistic UI with stable `client_msg_id`
-- Persist rooms/messages/receipts on device
-- Retry unacked sends with backoff
-- Catch up via `SyncRoom` / `since_seq`
+## What you get
 
-## Packages
+- Messages can appear in the UI immediately (optimistic send)
+- Rooms, messages, and read receipts persist on the device
+- Failed sends retry automatically
+- After reconnect, missed messages are fetched for you
 
-| Package | Role |
+## Choosing storage
+
+| Environment | Storage |
 | --- | --- |
-| `@omnychat/client` | Sync engine + `MemoryStorage` + `IndexedDBStorage` |
-| `@omnychat/storage-sqlite` | SQLite adapter for React Native / Expo |
-| `@omnychat/react` | Hooks shared by React web and React Native |
-
-## Local schema (logical)
-
-- **rooms** — `room_id`, `since_seq` (cursor), `joined`
-- **messages** — keyed by `(room_id, client_msg_id)`; optional `server_msg_id` / `seq`; `status` = `pending` \| `confirmed` \| `failed`
-- **receipts** — `(room_id, user_id)` → `last_read_seq` (monotonic max)
-- **outbox** — unacked sends with `attempts` + `next_attempt_at_unix_ms`
-
-## Reconnect loop
-
-1. Open WebSocket → `Auth` → `AuthOK`
-2. For each joined room: `JoinRoom` → `SyncRoom(since_seq)` until `!has_more`
-3. Flush outbox (same `client_msg_id`, exponential backoff)
-4. Apply live `MessageEvent` / receipts with dedupe
-
-## Conflict rules
-
-- Dedupe by `server_msg_id` or `(room_id, client_msg_id)`
-- Receipts are monotonic (`max` of local/remote)
-- Future edit/delete: **server wins**
-
-## Storage adapters
+| Browser | `createIndexedDBStorage()` from `@omnychat/client` |
+| Tests / Node | `createMemoryStorage()` from `@omnychat/client` |
+| React Native / Expo | `createSqliteStorage(...)` from `@omnychat/storage-sqlite` |
 
 ```ts
 // Web
 import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
 
-// React Native / Expo
-import { createSqliteStorage } from '@omnychat/storage-sqlite';
-import * as SQLite from 'expo-sqlite';
-const storage = await createSqliteStorage(SQLite.openDatabaseAsync);
+const client = createOmnyChat({
+  url: 'wss://chat.example.com/v1/ws',
+  tokenProvider: () => fetchToken(),
+  storage: createIndexedDBStorage(),
+});
 ```
 
-Wire protocol details: [Protocol](protocol.md). SDK usage: [SDK guide](sdk-guide.md).
+```ts
+// React Native / Expo
+import * as SQLite from 'expo-sqlite';
+import { createOmnyChat } from '@omnychat/client';
+import { createSqliteStorage } from '@omnychat/storage-sqlite';
+
+const storage = await createSqliteStorage(SQLite.openDatabaseAsync);
+const client = createOmnyChat({ url, tokenProvider, storage });
+```
+
+## How reconnect works (for your UI)
+
+1. Client reconnects and authenticates with your JWT
+2. For each joined room it catches up from the last known sequence
+3. Pending sends in the outbox flush (same message id — no duplicates)
+4. Live events resume; `subscribeRoom` keeps getting snapshots
+
+Message `status` in snapshots is typically `pending`, `confirmed`, or `failed` — use that for send indicators in your UI.
+
+SDK examples: [SDK guide](sdk-guide.md).

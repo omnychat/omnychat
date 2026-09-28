@@ -1,26 +1,25 @@
-# Roadmap — what’s left
+# What’s available
 
-## Done
+What OmnyChat gives your application today, and what is still coming.
 
-- Go WebSocket gateway, protobuf protocol, SQLite, Docker
-- Ordered rooms (1:1 and multi-user / group via the same room model)
-- Typing + read receipts, sync / catch-up
-- Message edit / soft-delete (`update_seq` sync)
-- REST JWT on `POST /v1/rooms`
-- Optional Redis pub/sub fan-out (`OMNYCHAT_REDIS_URL`)
-- HMAC webhooks for `message.created|edited|deleted`
-- Optional TLS (`OMNYCHAT_TLS_*`), structured logs, Prometheus `/metrics`
-- `@omnychat/client`, `@omnychat/react`, `@omnychat/vue`, `@omnychat/storage-sqlite` on [npm](https://www.npmjs.com/package/@omnychat/client)
-- Echo-client + Node smoke examples; docs
+## Available now
 
-You can self-host and exchange messages (including group chat) today. Install clients with `npm install @omnychat/client`.
+- Self-hosted gateway (Docker) with WebSocket messaging
+- Ordered rooms for **1:1 and group** chat (same API)
+- Typing indicators and read receipts
+- Message edit and soft-delete
+- Offline catch-up and local persistence via `@omnychat/client`
+- npm packages: [`@omnychat/client`](https://www.npmjs.com/package/@omnychat/client), [`@omnychat/react`](https://www.npmjs.com/package/@omnychat/react), [`@omnychat/vue`](https://www.npmjs.com/package/@omnychat/vue), [`@omnychat/storage-sqlite`](https://www.npmjs.com/package/@omnychat/storage-sqlite)
+- Optional Redis for multiple gateway replicas
+- Optional webhooks for push / side effects
+- JWT auth you control (HS256 or RS256)
 
-## Next
+You can add chat to your product today: install the client, host the gateway, mint JWTs from your backend.
 
-- Member list / invite / kick (or document app-owned membership as the long-term model)
-- Postgres option
-- Webhook delivery outbox / stronger retries
+## Coming later
 
-## Contribute
+- Built-in member list / invite / kick (today: membership stays in your app)
+- Postgres option for larger deployments
+- Stronger webhook delivery retries
 
-Highest leverage: Postgres option, or membership APIs.
+Membership policy is already designed to live in **your** app — that is intentional for most products.

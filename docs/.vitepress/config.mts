@@ -7,7 +7,7 @@ const GITHUB_REPO = `https://github.com/${GITHUB_USER}/${REPO}`
 export default defineConfig({
   title: 'OmnyChat',
   description:
-    'Self-hostable real-time messaging — WebSockets, ordered delivery, persistence.',
+    'Add self-hosted real-time messaging to your app — npm client, WebSockets, ordered delivery.',
   // Project Pages: https://omnychat.github.io/omnychat/
   // Use '/' only for a user/org root site or a custom domain.
   base: `/${REPO}/`,
@@ -45,27 +45,33 @@ export default defineConfig({
     nav: [
       { text: 'Get started', link: '/getting-started' },
       { text: 'SDK', link: '/sdk-guide' },
-      { text: 'GitHub', link: GITHUB_REPO },
+      { text: 'Deploy', link: '/deploy' },
     ],
     sidebar: [
       {
-        text: 'Guides',
+        text: 'Use in your app',
         items: [
           { text: 'Getting started', link: '/getting-started' },
-          { text: 'How it works', link: '/how-it-works' },
           { text: 'SDK guide', link: '/sdk-guide' },
+          { text: 'How it works', link: '/how-it-works' },
+          { text: 'Offline & sync', link: '/sync-model' },
+        ],
+      },
+      {
+        text: 'Host',
+        items: [
+          { text: 'Deploy the gateway', link: '/deploy' },
+          { text: 'What’s available', link: '/roadmap' },
+        ],
+      },
+      {
+        text: 'Advanced',
+        items: [
           { text: 'Protocol', link: '/protocol' },
-          { text: 'Deploy', link: '/deploy' },
-          { text: 'Sync model', link: '/sync-model' },
-          { text: 'Roadmap', link: '/roadmap' },
         ],
       },
     ],
     socialLinks: [{ icon: 'github', link: GITHUB_REPO }],
-    editLink: {
-      pattern: `${GITHUB_REPO}/edit/main/docs/:path`,
-      text: 'Edit this page',
-    },
     search: {
       provider: 'local',
     },
