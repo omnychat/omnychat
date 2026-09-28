@@ -1,139 +1,175 @@
 :root {
-  --ink: #0e1518;
-  --muted: #4a5b63;
-  --paper: #e8eef1;
-  --panel: #f4f7f9;
-  --line: #c5d0d6;
-  --teal: #0d9f8a;
-  --teal-deep: #087a6a;
-  --code-bg: #142026;
+  --ink: #141414;
+  --muted: #5c5c5c;
+  --paper: #fafafa;
+  --panel: #ffffff;
+  --line: #e5e5e5;
+  --amber: #d97706;
+  --amber-deep: #b45309;
+  --code-bg: #111111;
 
-  --vp-c-brand-1: var(--teal-deep);
-  --vp-c-brand-2: var(--teal);
-  --vp-c-brand-3: var(--teal);
-  --vp-c-brand-soft: color-mix(in srgb, var(--teal) 16%, transparent);
+  --vp-c-brand-1: var(--amber-deep);
+  --vp-c-brand-2: var(--amber);
+  --vp-c-brand-3: var(--amber);
+  --vp-c-brand-soft: color-mix(in srgb, var(--amber) 14%, transparent);
 
   --vp-c-bg: var(--paper);
-  --vp-c-bg-alt: var(--panel);
-  --vp-c-bg-soft: var(--panel);
-  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-alt: #f3f3f3;
+  --vp-c-bg-soft: #f3f3f3;
+  --vp-c-bg-elv: var(--panel);
 
   --vp-c-text-1: var(--ink);
   --vp-c-text-2: var(--muted);
-  --vp-c-text-3: #6b7c85;
+  --vp-c-text-3: #737373;
 
   --vp-c-border: var(--line);
   --vp-c-divider: var(--line);
   --vp-c-gutter: var(--line);
 
-  --vp-c-indigo-1: var(--teal-deep);
-  --vp-c-indigo-2: var(--teal);
-  --vp-c-indigo-3: var(--teal);
+  --vp-c-indigo-1: var(--amber-deep);
+  --vp-c-indigo-2: var(--amber);
+  --vp-c-indigo-3: var(--amber);
 
-  --vp-button-brand-bg: var(--teal);
-  --vp-button-brand-hover-bg: var(--teal-deep);
-  --vp-button-brand-active-bg: var(--teal-deep);
-  --vp-button-brand-border: var(--teal);
-  --vp-button-brand-hover-border: var(--teal-deep);
+  --vp-button-brand-bg: var(--amber);
+  --vp-button-brand-hover-bg: var(--amber-deep);
+  --vp-button-brand-active-bg: var(--amber-deep);
+  --vp-button-brand-border: var(--amber);
+  --vp-button-brand-hover-border: var(--amber-deep);
   --vp-button-brand-text: #fff;
 
   --vp-code-block-bg: var(--code-bg);
-  --vp-code-color: #d7ebe6;
+  --vp-code-color: #f5f5f4;
 
-  --vp-font-family-base: 'IBM Plex Sans', system-ui, sans-serif;
-  --vp-font-family-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --vp-font-family-base: 'DM Sans', system-ui, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, var(--ink) 30%, var(--teal-deep));
-  --vp-home-hero-image-background-image: radial-gradient(
-    ellipse at center,
-    color-mix(in srgb, var(--teal) 28%, transparent) 0%,
-    transparent 70%
-  );
+  --vp-home-hero-name-color: var(--ink);
+  --vp-home-hero-name-background: none;
+  --vp-home-hero-image-background-image: none;
+
+  --vp-radius: 4px;
 }
 
 .dark {
-  --vp-c-brand-1: #2ec4ad;
-  --vp-c-brand-2: #0d9f8a;
-  --vp-c-brand-3: #087a6a;
-  --vp-c-brand-soft: rgba(13, 159, 138, 0.2);
+  --vp-c-brand-1: #f59e0b;
+  --vp-c-brand-2: #d97706;
+  --vp-c-brand-3: #b45309;
+  --vp-c-brand-soft: rgba(217, 119, 6, 0.18);
 
-  --vp-c-bg: #0e1518;
-  --vp-c-bg-alt: #142026;
-  --vp-c-bg-soft: #1a2a31;
-  --vp-c-bg-elv: #142026;
+  --vp-c-bg: #141414;
+  --vp-c-bg-alt: #1a1a1a;
+  --vp-c-bg-soft: #1f1f1f;
+  --vp-c-bg-elv: #1a1a1a;
 
-  --vp-c-text-1: #e8eef1;
-  --vp-c-text-2: #a8b8c0;
-  --vp-c-text-3: #7a8e98;
+  --vp-c-text-1: #fafafa;
+  --vp-c-text-2: #a3a3a3;
+  --vp-c-text-3: #737373;
 
-  --vp-c-border: #2a3a42;
-  --vp-c-divider: #2a3a42;
-  --vp-c-gutter: #2a3a42;
+  --vp-c-border: #2e2e2e;
+  --vp-c-divider: #2e2e2e;
+  --vp-c-gutter: #2e2e2e;
 
-  --vp-button-brand-bg: var(--teal);
-  --vp-button-brand-hover-bg: #2ec4ad;
-  --vp-button-brand-border: var(--teal);
-  --vp-button-brand-hover-border: #2ec4ad;
-  --vp-button-brand-text: #fff;
+  --vp-button-brand-bg: var(--amber);
+  --vp-button-brand-hover-bg: #f59e0b;
+  --vp-button-brand-border: var(--amber);
+  --vp-button-brand-hover-border: #f59e0b;
+  --vp-button-brand-text: #141414;
 
-  --vp-home-hero-name-background: linear-gradient(120deg, #e8eef1 20%, #2ec4ad);
+  --vp-home-hero-name-color: #fafafa;
 }
 
 html {
   background-color: var(--vp-c-bg);
-  background-image:
-    linear-gradient(rgba(14, 21, 24, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 21, 24, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-.dark html,
-html.dark {
-  background-image:
-    linear-gradient(rgba(232, 238, 241, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 238, 241, 0.04) 1px, transparent 1px);
 }
 
 .VPNavBar .title,
 .VPHero .name,
+.VPHero .text,
 .vp-doc h1,
-.vp-doc h2 {
-  font-family: 'Syne', var(--vp-font-family-base);
-  letter-spacing: -0.03em;
-}
-
-.VPHero .name {
-  font-weight: 800;
-  font-size: clamp(2.75rem, 8vw, 4.25rem) !important;
-  line-height: 0.95;
-}
-
-.VPHero .text {
-  font-family: 'Syne', var(--vp-font-family-base);
-  font-weight: 700;
+.vp-doc h2,
+.vp-doc h3 {
+  font-family: 'Outfit', var(--vp-font-family-base);
   letter-spacing: -0.02em;
 }
 
+.VPHero .name {
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 3.75rem) !important;
+  line-height: 1.05;
+  color: var(--vp-home-hero-name-color);
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+
+.VPHero .text {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  max-width: 22rem;
+}
+
 .VPHero .tagline {
-  max-width: 28rem;
+  max-width: 30rem;
   color: var(--vp-c-text-2);
+  line-height: 1.55;
+}
+
+.VPButton {
+  border-radius: var(--vp-radius) !important;
+}
+
+.VPButton.medium {
+  border-radius: var(--vp-radius) !important;
+}
+
+.DocSearch-Button,
+.VPNavBarSearchButton,
+button.DocSearch-Button {
+  border-radius: var(--vp-radius) !important;
 }
 
 .vp-doc h1 {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .vp-doc h2 {
-  font-weight: 700;
-  border-top-color: var(--vp-c-divider);
+  font-weight: 600;
+  border-top: none;
+  padding-top: 0.5rem;
+  border-left: 3px solid var(--vp-c-brand-1);
+  padding-left: 0.75rem;
+  margin-left: -0.75rem;
 }
 
 .vp-doc a {
   font-weight: 500;
 }
 
-.VPSidebar .item.active .link,
-.VPSidebarItem.option .item .link.active {
+.VPSidebarItem.is-active > .item .link {
   color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem.is-active > .item .link::before,
+.VPSidebarItem.option .item .link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 2px;
+  background: var(--vp-c-brand-1);
+  border-radius: 1px;
+}
+
+.VPSidebarItem .item .link {
+  position: relative;
+}
+
+.VPFeature {
+  border-radius: var(--vp-radius) !important;
+  border-color: var(--vp-c-border) !important;
+}
+
+.VPLocalSearchBox .result,
+.VPLocalSearchBox input {
+  border-radius: var(--vp-radius);
 }
