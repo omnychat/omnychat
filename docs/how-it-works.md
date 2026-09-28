@@ -52,9 +52,9 @@ Send `SyncRoom` with `since_seq` to fetch messages missed while offline. Live ev
 
 | Today | Later |
 | --- | --- |
-| Gateway, Docker, protobuf protocol | Live npm publish |
-| Typing + read receipts | Multi-node / Postgres |
-| `@omnychat/client` + React / Vue / RN storage | REST auth, member list / ACL |
-| Ordered rooms (1:1 + group) | Message edit/delete |
+| Gateway, Docker, protobuf protocol | Multi-node / Postgres |
+| Typing + read receipts | REST auth, member list / ACL |
+| `@omnychat/*` on npm (client, React, Vue, SQLite) | — |
+| Ordered rooms (1:1 + group), edit / soft-delete | — |
 
 Details: [Roadmap](roadmap.md)

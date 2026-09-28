@@ -2,26 +2,22 @@
 
 Headless TypeScript clients. You keep your own chat UI.
 
-## Packages
-
-| Package | Role |
-| --- | --- |
-| `@omnychat/client` | Core: connect, rooms, send, sync, outbox |
-| `@omnychat/react` | Hooks: `useOmnyChat`, `useRoom`, `useConnection` (web + React Native) |
-| `@omnychat/vue` | Vue 3 composables (same surface as React) |
-| `@omnychat/storage-sqlite` | SQLite storage for Expo / React Native |
-
-## Setup (workspace)
+## Install from npm
 
 ```bash
-cd clients/typescript && npm install && npm run build
+npm install @omnychat/client
+# optional UI bindings:
+npm install @omnychat/react          # React / React Native hooks
+npm install @omnychat/vue            # Vue 3 composables
+npm install @omnychat/storage-sqlite # Expo / React Native SQLite storage
 ```
 
-Packages live under `clients/typescript/packages/`. They are **not published to npm yet**. Dry-run packing:
-
-```bash
-cd clients/typescript && npm run publish:dry
-```
+| Package | Role | npm |
+| --- | --- | --- |
+| `@omnychat/client` | Core: connect, rooms, send, sync, outbox | [npm](https://www.npmjs.com/package/@omnychat/client) |
+| `@omnychat/react` | Hooks: `useOmnyChat`, `useRoom`, `useConnection` (web + React Native) | [npm](https://www.npmjs.com/package/@omnychat/react) |
+| `@omnychat/vue` | Vue 3 composables (same surface as React) | [npm](https://www.npmjs.com/package/@omnychat/vue) |
+| `@omnychat/storage-sqlite` | SQLite storage for Expo / React Native | [npm](https://www.npmjs.com/package/@omnychat/storage-sqlite) |
 
 ## Core usage
 

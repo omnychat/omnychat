@@ -48,15 +48,37 @@ event from=alice seq=1 body="hello omnychat"
 ok
 ```
 
-## 4. Wire your app
-
-See the root [README](https://github.com/omnychat/omnychat/blob/main/README.md) integrate steps and [SDK guide](sdk-guide.md).
-
-Optional Node smoke (validates `@omnychat/client`):
+## 4. Install the client (npm)
 
 ```bash
-cd clients/typescript && npm install && npm run build
-OMNYCHAT_JWT_SECRET=dev-secret-change-me npm start -w @omnychat/node-smoke
+npm install @omnychat/client
+# optional:
+npm install @omnychat/react          # React / React Native
+npm install @omnychat/vue            # Vue 3
+npm install @omnychat/storage-sqlite # Expo / React Native SQLite
 ```
+
+Packages: [@omnychat/client](https://www.npmjs.com/package/@omnychat/client) and related `@omnychat/*` on npm.
+
+## 5. Connect from your app
+
+```ts
+import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
+
+const client = createOmnyChat({
+  url: 'ws://localhost:8080/v1/ws',
+  tokenProvider: () => fetchYourJwt(), // JWT sub = user id; same OMNYCHAT_JWT_SECRET
+  storage: createIndexedDBStorage(),
+});
+
+await client.connect();
+await client.joinRoom('lobby');
+await client.sendMessage('lobby', 'hello');
+client.subscribeRoom('lobby', (snap) => {
+  // snap.messages ordered by seq
+});
+```
+
+More API detail: [SDK guide](sdk-guide.md).
 
 Next: [How it works](how-it-works.md) · [Deploy](deploy.md)
