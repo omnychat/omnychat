@@ -4,7 +4,7 @@ layout: home
 hero:
   name: OmnyChat
   text: Real-time messaging you host
-  tagline: You own auth and UI. OmnyChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
+  tagline: Install @omnychat/client from npm. You own auth and UI — OmnyChat owns WebSockets, ordered delivery, persistence, typing, and receipts.
   actions:
     - theme: brand
       text: Get started
