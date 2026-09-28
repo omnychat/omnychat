@@ -2,4 +2,14 @@
 
 OmnyChat sync manager: WebSocket transport, local storage, optimistic outbox, reconnect + `SyncRoom`.
 
-See [SDK guide](../../../docs/sdk-guide.md) and [Sync model](../../../docs/sync-model.md).
+## Install
+
+```bash
+npm install @omnychat/client
+```
+
+## Docs
+
+- [Documentation site](https://omnychat.github.io/omnychat/)
+- [SDK guide](../../../docs/sdk-guide.md)
+- [Sync model](../../../docs/sync-model.md)

@@ -4,6 +4,20 @@ Self-hostable real-time messaging. You own auth and UI; OmnyChat owns WebSockets
 
 **Group chat and 1:1 are the same thing:** a room with one or many users. There is no separate group API.
 
+**Docs:** [omnychat.github.io/omnychat](https://omnychat.github.io/omnychat/)
+
+## Install from npm
+
+```bash
+npm install @omnychat/client
+# optional UI bindings:
+npm install @omnychat/react          # React / React Native hooks
+npm install @omnychat/vue            # Vue 3 composables
+npm install @omnychat/storage-sqlite # Expo / React Native SQLite storage
+```
+
+Package: [@omnychat/client](https://www.npmjs.com/package/@omnychat/client)
+
 ## Integrate in four steps
 
 ### 1. Run the gateway
@@ -35,12 +49,6 @@ Use a stable `id` you control (e.g. `dm-{userA}-{userB}` or `group-{uuid}`).
 Sign HS256 with the same `OMNYCHAT_JWT_SECRET`. Claim `sub` = your user id. OmnyChat does not store passwords — it only verifies tokens.
 
 ### 4. Connect from your app
-
-Packages live under `clients/typescript` (not on npm yet — link locally or `npm pack`).
-
-```bash
-cd clients/typescript && npm install && npm run build
-```
 
 ```ts
 import { createOmnyChat, createIndexedDBStorage } from '@omnychat/client';
@@ -93,6 +101,8 @@ Typing: `client.setTyping(roomId, true)`. Read receipts: `client.sendReadReceipt
 
 ## Docs
 
+**Site:** [https://omnychat.github.io/omnychat/](https://omnychat.github.io/omnychat/)
+
 | Guide | |
 | --- | --- |
 | [Getting started](docs/getting-started.md) | Run locally, first message |
@@ -105,29 +115,15 @@ Typing: `client.setTyping(roomId, true)`. Read receipts: `client.sendReadReceipt
 
 Local docs site (VitePress): `make docs` → http://localhost:5173/omnychat/
 
-After you publish: `https://omnychat.github.io/omnychat/`
-
-## Publish
+## Links
 
 | What | Where |
 | --- | --- |
 | Source code | [github.com/omnychat/omnychat](https://github.com/omnychat/omnychat) |
-| Docs site | GitHub Pages — `https://omnychat.github.io/omnychat/` |
-| Client packages | npm (`@omnychat/*`) when ready — not published yet |
+| Docs site | [omnychat.github.io/omnychat](https://omnychat.github.io/omnychat/) |
+| Client on npm | [@omnychat/client](https://www.npmjs.com/package/@omnychat/client) |
 | Do not publish | `chat-demo/` (local E2E only; lives outside this repo) |
 
-When you are ready:
-
-1. Create the **omnychat** GitHub org and transfer (or recreate) this repo as `omnychat/omnychat`. Then: `git remote set-url origin git@github.com:omnychat/omnychat.git` and `git push -u origin main`.
-2. Create the **@omnychat** npm org (npmjs.com → orgs), `npm login`, then from `clients/typescript`:
-   ```bash
-   npm install && npm run build
-   npm publish -w @omnychat/client --access public
-   npm publish -w @omnychat/react --access public
-   npm publish -w @omnychat/storage-sqlite --access public
-   npm publish -w @omnychat/vue --access public
-   ```
-3. Repo **Settings → Pages → Source: GitHub Actions** so docs deploy to `https://omnychat.github.io/omnychat/`.
 ## Layout
 
 ```
